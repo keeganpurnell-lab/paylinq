@@ -11,11 +11,10 @@ Founding team: Poojan Pitolwala (Founder & CEO), Sophie Wells (COO), Keegan Purn
 - `404.html` — "page not found" for GitHub Pages
 - `assets/` — photos (JPG + WebP), share card `og.jpg`, home-screen icon
 
-## Go live (GitHub Pages)
-Settings → Pages → Source: *Deploy from a branch* → choose this branch and `/ (root)` → Save.
-The site appears at https://keeganpurnell-lab.github.io/paylinq/
+## Live site
+**https://dairee.ca** — hosted on Netlify.
 
-If the repo is renamed or a custom domain is added, update the full URLs in `index.html` (`og:url`, `og:image`, JSON-LD) and the link in `404.html`.
+To update: download/zip this folder (or the files `index.html`, `404.html`, `styles.css`, `script.js`, `robots.txt`, `sitemap.xml`, `assets/`) and drag it into the site's **Deploys** tab on Netlify. Or connect this GitHub repository to Netlify so every push deploys automatically.
 
 ## Still to do
 1. **Survey:** set `FORM_ENDPOINT` in `script.js` (e.g. a Formspree URL). Until then answers open as a pre-filled email.
