@@ -48,6 +48,7 @@
         <a href="#join">Help shape it</a>
       </nav>
       <a href="#team" class="btn btn-dark btn-small header-cta">Meet the team <span aria-hidden="true">↗</span></a>
+      <span class="progress" aria-hidden="true"></span>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span>
       </button>
@@ -58,23 +59,28 @@
     <!-- ========== HERO ========== -->
     <section class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
+      <div class="drops" aria-hidden="true">
+        <span style="--x:8%;--s:10px;--t:19s;--dl:-2s"></span><span style="--x:22%;--s:6px;--t:23s;--dl:-11s"></span>
+        <span style="--x:41%;--s:8px;--t:17s;--dl:-6s"></span><span style="--x:63%;--s:12px;--t:25s;--dl:-15s"></span>
+        <span style="--x:78%;--s:7px;--t:21s;--dl:-4s"></span><span style="--x:91%;--s:9px;--t:18s;--dl:-9s"></span>
+      </div>
       <div class="container hero-inner">
-        <p class="eyebrow eyebrow-light"><span class="dot"></span>A student-led idea from Nova Scotia</p>
-        <h1>A second life for milk.<br /><em>A new idea for plant care.</em></h1>
-        <p class="lead">We're exploring how repurposed milk could become a gentle liquid fertilizer for houseplants and home gardens.</p>
+        <p class="eyebrow eyebrow-light intro" style="--i:0"><span class="dot"></span>A student-led idea from Nova Scotia</p>
+        <h1><span class="line"><span class="intro-line" style="--i:1">A second life for milk.</span></span><span class="line"><em class="intro-line" style="--i:2">A new idea for plant care.</em></span></h1>
+        <p class="lead intro" style="--i:4">We're exploring how repurposed milk could become a gentle liquid fertilizer for houseplants and home gardens.</p>
 
-        <div class="hero-rule">
+        <div class="hero-rule intro" style="--i:5">
           <span>Good things deserve to grow again</span>
         </div>
 
-        <div class="hero-ctas">
+        <div class="hero-ctas intro" style="--i:6">
           <a href="#idea" class="btn btn-cream">Discover Dairee <span aria-hidden="true">↗</span></a>
           <a href="#join" class="follow">
             <span class="mouse" aria-hidden="true"><span></span></span>
             Follow our progress
           </a>
         </div>
-        <div class="hero-foot">
+        <div class="hero-foot intro" style="--i:7">
           <span>Halifax, Nova Scotia</span>
           <span class="status"><span class="pulse" aria-hidden="true"></span>In development. Not yet for sale.</span>
         </div>
@@ -107,7 +113,7 @@
           <p>We're developing the idea carefully, with home gardeners and houseplant lovers in mind. The product is still in development, and its formulation and performance haven't been validated yet.</p>
         </div>
 
-        <figure class="photo-card soil reveal">
+        <figure class="photo-card soil reveal zoom parallax">
           <img src="assets/soil.jpg" width="1180" height="470" loading="lazy" alt="A green garden trowel full of dark potting soil, with moss on a pale work surface." />
           <figcaption class="overlay-card">
             <p class="eyebrow"><span class="ring"></span>Made for growers</p>
@@ -161,31 +167,31 @@
             <div class="orbit-core">
               <!-- 01 carton -->
               <svg class="icon icon-0" viewBox="0 0 120 140">
-                <g transform="rotate(-12 60 70)">
+                <g class="tilt"><g transform="rotate(-12 60 70)">
                   <path d="M34 40h52v86a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6Z" fill="#fff" stroke="#e1e6d5"/>
                   <path d="M34 40 46 16h28l12 24Z" fill="#fff" stroke="#e1e6d5"/>
                   <path d="M30 40h60M46 16l14 24 14-24" stroke="#16291f" stroke-width="4" fill="none" stroke-linecap="round"/>
                   <path d="M60 66c-6 8-11 14-11 20a11 11 0 0 0 22 0c0-6-5-12-11-20Z" fill="#7f9a6c"/>
                   <text x="60" y="118" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="800" font-size="11" letter-spacing="3" fill="#16291f">MILK</text>
-                </g>
+                </g></g>
               </svg>
               <!-- 02 flask -->
               <svg class="icon icon-1" viewBox="0 0 120 140">
                 <path d="M48 18h24M52 18v36L28 110a10 10 0 0 0 9 14h46a10 10 0 0 0 9-14L68 54V18" fill="#fff" stroke="#16291f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
                 <path d="M38 96h44l8 16a6 6 0 0 1-5 8H35a6 6 0 0 1-5-8Z" fill="#f3ecd9"/>
-                <circle cx="54" cy="84" r="4" fill="#7f9a6c"/><circle cx="66" cy="74" r="3" fill="#7f9a6c"/><circle cx="62" cy="62" r="2" fill="#7f9a6c"/>
+                <circle class="bubble" style="--b:0s" cx="54" cy="104" r="4" fill="#7f9a6c"/><circle class="bubble" style="--b:.7s" cx="66" cy="106" r="3" fill="#7f9a6c"/><circle class="bubble" style="--b:1.4s" cx="60" cy="108" r="2.5" fill="#7f9a6c"/>
               </svg>
               <!-- 03 magnifier -->
               <svg class="icon icon-2" viewBox="0 0 120 140">
                 <path d="M52 92V70m0 6c-8 0-13-5-13-13 8 0 13 5 13 13Zm0-2c0-8 5-13 13-13 0 8-5 13-13 13Z" fill="#7f9a6c" stroke="#7f9a6c" stroke-width="2" stroke-linejoin="round"/>
-                <circle cx="52" cy="72" r="32" fill="none" stroke="#16291f" stroke-width="5"/>
-                <path d="M75 96l22 22" stroke="#16291f" stroke-width="9" stroke-linecap="round"/>
+                <g class="scan"><circle cx="52" cy="72" r="32" fill="none" stroke="#16291f" stroke-width="5"/>
+                <path d="M75 96l22 22" stroke="#16291f" stroke-width="9" stroke-linecap="round"/></g>
               </svg>
               <!-- 04 sprout in pot -->
               <svg class="icon icon-3" viewBox="0 0 120 140">
                 <path d="M60 84V46" stroke="#16291f" stroke-width="4" stroke-linecap="round"/>
-                <path d="M58 62c-18 0-28-10-28-28 18 0 28 10 28 28Z" fill="#7f9a6c"/>
-                <path d="M62 54c0-18 10-28 28-28 0 18-10 28-28 28Z" fill="#a8c094"/>
+                <path class="leaf leaf-l" d="M58 62c-18 0-28-10-28-28 18 0 28 10 28 28Z" fill="#7f9a6c"/>
+                <path class="leaf leaf-r" d="M62 54c0-18 10-28 28-28 0 18-10 28-28 28Z" fill="#a8c094"/>
                 <path d="M30 84h60l-8 42a6 6 0 0 1-6 5H44a6 6 0 0 1-6-5Z" fill="#c9784a"/>
                 <rect x="26" y="78" width="68" height="12" rx="4" fill="#b5673c"/>
               </svg>
@@ -236,7 +242,7 @@
         </div>
 
         <article class="product-card reveal">
-          <figure class="product-photo">
+          <figure class="product-photo zoom">
             <img src="assets/cactus.jpg" width="1178" height="1080" loading="lazy" alt="A small cactus in a terracotta pot against a soft pink wall." />
             <span class="photo-pill">For the little things you love to grow</span>
           </figure>
@@ -265,7 +271,7 @@
         </article>
 
         <div class="honest reveal">
-          <svg class="honest-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4C22 18 12 30 12 42a20 20 0 0 0 40 0C52 30 42 18 32 4Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M32 50V38m0 3c-4 0-7-3-7-7 4 0 7 3 7 7Zm0-1c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <svg class="honest-icon draw" viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M32 4C22 18 12 30 12 42a20 20 0 0 0 40 0C52 30 42 18 32 4Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path pathLength="1" d="M32 50V38m0 3c-4 0-7-3-7-7 4 0 7 3 7 7Zm0-1c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           <h2>Honest, <em>from the start.</em></h2>
           <p>Still in development. Formulation and performance haven't been validated yet, and we'll measure before we make claims.</p>
           <p class="honest-tag">In development. Not yet for sale.</p>
@@ -281,7 +287,7 @@
           <span>Dairee / 2026</span>
         </div>
         <div class="team-grid">
-          <figure class="team-photo reveal">
+          <figure class="team-photo reveal zoom">
             <img src="assets/team.jpg" width="1176" height="1180" loading="lazy" alt="The three Dairee co-founders standing together in matching brown Dairee t-shirts at a Saint Mary's University event." />
             <figcaption class="photo-pill">The people behind the Dairee idea</figcaption>
           </figure>
@@ -383,7 +389,7 @@
   <!-- ========== FOOTER ========== -->
   <footer class="site-footer">
     <div class="container">
-      <p class="footer-big">Good things deserve <em>to grow again.</em></p>
+      <p class="footer-big reveal split">Good things deserve <em>to grow again.</em></p>
       <div class="footer-grid">
         <div>
           <a href="#top" class="logo-badge logo-badge-dark" aria-label="Dairee — back to top">

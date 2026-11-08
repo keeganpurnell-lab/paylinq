@@ -5,11 +5,77 @@ const FORM_ENDPOINT = '';
 const CONTACT_EMAIL = 'hello@dairee.com';
 // -------------------------------------------------------------------------
 
-// Header: transparent over the hero, solid once scrolled
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Scroll effects: header state, hide-on-scroll-down, progress line, parallax
 const header = document.querySelector('.site-header');
-const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
-window.addEventListener('scroll', onScroll, { passive: true });
+const progress = document.querySelector('.progress');
+const heroBg = document.querySelector('.hero-bg');
+const parallaxImgs = [...document.querySelectorAll('.parallax img')];
+let lastY = window.scrollY;
+let ticking = false;
+
+const onScroll = () => {
+  const y = window.scrollY;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  header.classList.toggle('scrolled', y > 24);
+  if (!document.body.classList.contains('nav-open')) {
+    if (y > lastY + 4 && y > 320) header.classList.add('hide');
+    else if (y < lastY - 4 || y < 320) header.classList.remove('hide');
+  }
+  lastY = y;
+  progress.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
+
+  if (!reduceMotion) {
+    if (y < window.innerHeight * 1.2) heroBg.style.setProperty('--hy', `${(y * 0.28).toFixed(1)}px`);
+    parallaxImgs.forEach((img) => {
+      const r = img.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      const offset = (r.top + r.height / 2 - window.innerHeight / 2) * -0.07;
+      img.style.setProperty('--py', `${offset.toFixed(1)}px`);
+    });
+  }
+  ticking = false;
+};
+window.addEventListener('scroll', () => {
+  if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+}, { passive: true });
 onScroll();
+
+// Split headlines into words so they can rise in one by one
+document.querySelectorAll('h2, .footer-big').forEach((el) => {
+  let i = 0;
+  const wrap = (node) => {
+    [...node.childNodes].forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.append(document.createTextNode(part)); return; }
+          const w = document.createElement('span');
+          w.className = 'w';
+          const inner = document.createElement('span');
+          inner.textContent = part;
+          inner.style.setProperty('--wi', i++);
+          w.append(inner);
+          frag.append(w);
+        });
+        child.replaceWith(frag);
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        wrap(child);
+      }
+    });
+  };
+  wrap(el);
+  el.classList.add('split-ready');
+});
+
+// Stagger sibling reveals (cards, pillars, steps…)
+document.querySelectorAll('.reveal').forEach((el) => {
+  const sibs = [...el.parentElement.children].filter((c) => c.classList.contains('reveal'));
+  const idx = sibs.indexOf(el);
+  if (sibs.length > 1 && idx > 0) el.style.setProperty('--sd', `${Math.min(idx, 5) * 110}ms`);
+});
 
 // Mobile nav
 const toggle = document.getElementById('navToggle');
@@ -44,15 +110,21 @@ const setStep = (i) => {
   orbit.dataset.step = String(i);
   stepBtns.forEach((b, j) => b.setAttribute('aria-pressed', String(i === j)));
 };
-const stopAuto = () => { clearInterval(auto); auto = null; };
+const orbitWrap = orbit.parentElement;
+const stopAuto = () => { clearInterval(auto); auto = null; orbitWrap.classList.remove('auto'); };
 stepBtns.forEach((b, i) => b.addEventListener('click', () => { stopAuto(); setStep(i); }));
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!reduceMotion && 'IntersectionObserver' in window) {
   let touched = false;
   stepBtns.forEach((b) => b.addEventListener('click', () => { touched = true; }));
   new IntersectionObserver(([e]) => {
     if (e.isIntersecting && !auto && !touched) {
-      auto = setInterval(() => setStep((Number(orbit.dataset.step) + 1) % stepBtns.length), 3200);
+      orbitWrap.classList.add('auto');
+      setStep(Number(orbit.dataset.step));
+      auto = setInterval(() => {
+        setStep((Number(orbit.dataset.step) + 1) % stepBtns.length);
+        // restart the progress bar on the newly active step
+        orbitWrap.classList.remove('auto'); void orbitWrap.offsetWidth; orbitWrap.classList.add('auto');
+      }, 3200);
     } else if (!e.isIntersecting) stopAuto();
   }, { threshold: 0.4 }).observe(orbit.parentElement);
 }
@@ -91,6 +163,7 @@ form.addEventListener('submit', async (e) => {
       });
       if (!res.ok) throw new Error(res.status);
       form.reset();
+      form.classList.remove('sent'); void form.offsetWidth; form.classList.add('sent');
       say('Thank you! Your answers really help us decide what to build.');
     } catch {
       say('Something went wrong. Please try again, or email us.', true);
