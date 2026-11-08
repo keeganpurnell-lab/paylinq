@@ -201,12 +201,43 @@ document.querySelectorAll('.copy-btn').forEach((btn) => {
   });
 });
 
-// Hero: tap the sprout to replay the drop
+// Hero: tap the pot to pour more milk; the plant grows, then blooms
 const heroArt = document.getElementById('heroArt');
+const artCount = document.getElementById('artCount');
+let drops = 1;
+let stage = 1;
+let settleTimer;
+const settle = () => {
+  clearTimeout(settleTimer);
+  settleTimer = setTimeout(() => heroArt.classList.replace('play', 'grown'), reduceMotion ? 0 : 3800);
+};
+const setStage = (n) => {
+  stage = n;
+  heroArt.classList.toggle('s2', n >= 2);
+  heroArt.classList.toggle('s3', n >= 3);
+};
+const label = () => {
+  if (stage >= 3) return `${drops} drops saved. Good things grow again.`;
+  return `${drops} drop${drops === 1 ? '' : 's'} saved · tap to pour`;
+};
+settle();
 heroArt.addEventListener('click', () => {
-  heroArt.classList.remove('play');
+  if (stage >= 3) {
+    // Start over: replay the very first drop
+    drops = 1;
+    setStage(1);
+    heroArt.classList.remove('grown', 'pour', 'play');
+    void heroArt.offsetWidth;
+    heroArt.classList.add('play');
+    artCount.textContent = 'Tap the pot to pour';
+    settle();
+    return;
+  }
+  drops += 1;
+  heroArt.classList.remove('pour');
   void heroArt.offsetWidth;
-  heroArt.classList.add('play');
+  heroArt.classList.add('pour');
+  setTimeout(() => { setStage(stage + 1); artCount.textContent = label(); }, reduceMotion ? 0 : 720);
 });
 
 // Manifesto: light up words as the paragraph scrolls past

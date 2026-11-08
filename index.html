@@ -71,9 +71,9 @@
         <a href="#process">Process</a>
         <a href="#why">Why milk</a>
         <a href="#faq">FAQ</a>
-        <a href="#join">Help shape it</a>
+        <a href="#team">Team</a>
       </nav>
-      <a href="#team" class="btn btn-dark btn-small header-cta">Meet the team <span aria-hidden="true">↗</span></a>
+      <a href="#join" class="btn btn-dark btn-small header-cta">Help shape Dairee <span aria-hidden="true">↗</span></a>
       <span class="progress" aria-hidden="true"></span>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span>
@@ -109,7 +109,7 @@
           </a>
         </div>
         </div>
-        <button type="button" class="hero-art play" id="heroArt" aria-label="Replay the milk-to-sprout animation">
+        <button type="button" class="hero-art play" id="heroArt" aria-label="Pour another drop of milk and watch the plant grow">
           <svg viewBox="0 0 360 440" aria-hidden="true">
             <defs>
               <radialGradient id="glowG" cx="50%" cy="55%" r="50%">
@@ -120,10 +120,25 @@
             <circle cx="180" cy="250" r="170" fill="url(#glowG)"/>
             <circle class="art-orbit" cx="180" cy="250" r="158" fill="none" stroke="#d4e0bf" stroke-opacity=".28" stroke-dasharray="2 10"/>
             <!-- stem + leaves -->
+            <g class="plant">
             <path class="stem" pathLength="1" d="M180 318C180 276 175 244 181 196" fill="none" stroke="#a8c094" stroke-width="6" stroke-linecap="round"/>
             <path class="leaf leaf-a" d="M180 236c-40 4-70-18-76-56 40-2 70 18 76 56Z" fill="#7f9a6c"/>
             <path class="leaf leaf-b" d="M181 210c8-38 40-60 80-58-6 38-38 60-80 58Z" fill="#a8c094"/>
             <path class="leaf leaf-c" d="M181 198c-10-14-8-30 4-42 10 14 8 30-4 42Z" fill="#d4e0bf"/>
+            <!-- stage 2: taller, more leaves -->
+            <path class="stem2 extra2" pathLength="1" d="M181 200C184 178 178 160 181 132" fill="none" stroke="#a8c094" stroke-width="5" stroke-linecap="round"/>
+            <path class="leaf leaf-d extra2" d="M181 176c-30 2-52-14-56-42 30-2 52 14 56 42Z" fill="#6f8f60"/>
+            <path class="leaf leaf-e extra2" d="M181 158c6-28 30-44 58-42-4 28-28 44-58 42Z" fill="#8fae7e"/>
+            <!-- stage 3: a milk-white bloom -->
+            <g class="flower extra3">
+              <ellipse cx="181" cy="112" rx="9" ry="18" fill="#f3ecd9"/>
+              <ellipse cx="181" cy="112" rx="9" ry="18" fill="#f3ecd9" transform="rotate(72 181 130)"/>
+              <ellipse cx="181" cy="112" rx="9" ry="18" fill="#f3ecd9" transform="rotate(144 181 130)"/>
+              <ellipse cx="181" cy="112" rx="9" ry="18" fill="#f3ecd9" transform="rotate(216 181 130)"/>
+              <ellipse cx="181" cy="112" rx="9" ry="18" fill="#f3ecd9" transform="rotate(288 181 130)"/>
+              <circle cx="181" cy="130" r="8" fill="#e2b46b"/>
+            </g>
+            </g>
             <!-- pot -->
             <path d="M100 332h160l-17 96a8 8 0 0 1-8 6H125a8 8 0 0 1-8-6Z" fill="#c9784a"/>
             <path d="M118 360h124" stroke="#b5673c" stroke-width="3" opacity=".5"/>
@@ -139,7 +154,7 @@
             <!-- milk drop -->
             <path class="milk-drop" d="M180 0c-10 14-18 24-18 34a18 18 0 0 0 36 0c0-10-8-20-18-34Z" fill="#f3ecd9"/>
           </svg>
-          <span class="art-hint" aria-hidden="true">Tap to replay</span>
+          <span class="art-count" id="artCount" aria-live="polite">Tap the pot to pour</span>
         </button>
         </div>
         <div class="hero-foot intro" style="--i:7">

@@ -596,3 +596,53 @@ body::after {
   .js .manifesto-text .mw { opacity: 1; }
   .wordmark { transform: none; }
 }
+
+/* =====================================================================
+   Interactive hero: tap to pour, the plant grows in stages and blooms
+   ===================================================================== */
+.art-hint { display: none; }
+.art-count {
+  position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap;
+  padding: .45rem .9rem; border-radius: 999px; background: rgba(14,28,20,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212,224,191,.2); color: var(--sage-pale);
+  font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  transition: background .3s, color .3s;
+}
+.art-count::before { content: ""; width: 7px; height: 9px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: #f3ecd9; }
+.hero-art:hover .art-count { background: rgba(14,28,20,.75); color: var(--cream); }
+.hero-art:active svg { transform: scale(.985); }
+.hero-art svg { transition: transform .15s ease; }
+
+/* stages */
+.extra2, .extra3 { opacity: 0; transform-box: view-box; transition: opacity .4s ease, transform 1s var(--spring); }
+.leaf-d { transform-origin: 181px 176px; transform: scale(0); }
+.leaf-e { transform-origin: 181px 158px; transform: scale(0); }
+.stem2 { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s var(--ease-out), opacity .2s; }
+.flower { transform-origin: 181px 130px; transform: scale(0) rotate(-120deg); transition-duration: .4s, 1.3s; }
+.hero-art.s2 .extra2, .hero-art.s3 .extra2 { opacity: 1; }
+.hero-art.s2 .stem2, .hero-art.s3 .stem2 { stroke-dashoffset: 0; }
+.hero-art.s2 .leaf-d, .hero-art.s3 .leaf-d { transform: none; transition-delay: 0s, .45s; }
+.hero-art.s2 .leaf-e, .hero-art.s3 .leaf-e { transform: none; transition-delay: 0s, .7s; }
+.hero-art.s3 .extra3 { opacity: 1; transform: none; transition-delay: 0s, .2s; }
+.hero-art.s3 .flower { animation: bloomPulse 4s ease-in-out 1.6s infinite; }
+@keyframes bloomPulse { 50% { transform: scale(1.06) rotate(8deg); } }
+
+/* whole plant sways once grown */
+.plant { transform-box: view-box; transform-origin: 180px 316px; }
+.hero-art.grown .plant { animation: plantSway 6s ease-in-out infinite; }
+@keyframes plantSway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-1.6deg); } }
+.hero-art.grown .leaf-a { animation: leafSway 5s ease-in-out infinite; }
+.hero-art.grown .leaf-b { animation: leafSway 5.6s ease-in-out infinite reverse; }
+
+/* each extra pour */
+.hero-art.pour .milk-drop { animation: fall .7s cubic-bezier(.55,0,1,.45) both, vanish .1s linear .7s forwards; }
+.hero-art.pour .ripple { transform-box: fill-box; transform-origin: center; animation: ripple 1s var(--ease-out) .7s both; }
+.hero-art.pour .r2 { animation-delay: .9s; }
+.hero-art.pour .spark { animation: spark .8s var(--ease-out) .7s both; }
+.hero-art.pour .s1 { --sx: -34px; --sy: -36px; }
+.hero-art.pour .s2 { --sx: 30px; --sy: -44px; }
+.hero-art.pour .s3 { --sx: 8px; --sy: -58px; }
+
+@media (max-width: 960px) { .art-count { font-size: .62rem; padding: .35rem .7rem; bottom: -10px; left: 0; transform: none; } }
+@media (max-width: 600px) { .hero-art { margin-bottom: .9rem; } }
