@@ -15,7 +15,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>document.documentElement.classList.add("js")</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 3C22 17 11 29 11 42a21 21 0 0 0 42 0C53 29 42 17 32 3Z' fill='%2316291f'/%3E%3Cpath d='M32 52V36M32 40c-6 0-10-4-10-10 6 0 10 4 10 10Zm0-2c0-6 4-10 10-10 0 6-4 10-10 10Z' fill='%23eef0e4' stroke='%23eef0e4' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E" />
@@ -23,30 +23,31 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Reusable logo mark -->
+  <!-- Reusable logo mark: drop + sprout -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="mark" viewBox="0 0 64 64">
       <path d="M32 3C22 17 11 29 11 42a21 21 0 0 0 42 0C53 29 42 17 32 3Z" fill="currentColor"/>
-      <path d="M32 53V37" stroke="var(--mark-cut, #f4f3ec)" stroke-width="3" stroke-linecap="round"/>
-      <path d="M31 41c-7 0-11-4.5-11-11 7 0 11 4.5 11 11Z" fill="var(--mark-cut, #f4f3ec)"/>
-      <path d="M33 38c0-7 4.5-11 11-11 0 7-4.5 11-11 11Z" fill="var(--mark-cut, #f4f3ec)"/>
+      <path d="M32 53V37" stroke="var(--mark-cut, #fff)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M31 41c-7 0-11-4.5-11-11 7 0 11 4.5 11 11Z" fill="var(--mark-cut, #fff)"/>
+      <path d="M33 38c0-7 4.5-11 11-11 0 7-4.5 11-11 11Z" fill="var(--mark-cut, #fff)"/>
     </symbol>
   </svg>
 
-  <!-- ========== HEADER ========== -->
+  <!-- ========== FLOATING HEADER ========== -->
   <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a href="#top" class="logo" aria-label="Dairee — back to top">
+    <div class="header-card">
+      <a href="#top" class="logo-badge" aria-label="Dairee — back to top">
         <svg aria-hidden="true"><use href="#mark"/></svg>
-        <span>dairee</span>
+        <span>DAIREE</span>
       </a>
       <nav class="nav" id="nav" aria-label="Primary">
         <a href="#idea">The idea</a>
         <a href="#process">Process</a>
-        <a href="#team">Team</a>
+        <a href="#product">Product</a>
         <a href="#faq">FAQ</a>
-        <a href="#join" class="btn btn-small">Help shape Dairee</a>
+        <a href="#join">Help shape it</a>
       </nav>
+      <a href="#team" class="btn btn-dark btn-small header-cta">Meet the team <span aria-hidden="true">↗</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span>
       </button>
@@ -56,187 +57,219 @@
   <main id="main">
     <!-- ========== HERO ========== -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow eyebrow-light"><span class="dot"></span>A student-led idea from Halifax, Nova Scotia</p>
-          <h1>A second life for milk.<br /><em>A new idea for plant care.</em></h1>
-          <p class="lead">We're exploring how milk that would otherwise go unused could become a gentle liquid fertilizer for indoor growers and home gardeners.</p>
-          <div class="hero-ctas">
-            <a href="#join" class="btn btn-light">Help shape Dairee <span aria-hidden="true">→</span></a>
-            <a href="#process" class="btn btn-outline-light">How it could work</a>
-          </div>
-          <p class="status-pill"><span class="pulse" aria-hidden="true"></span>In development. Not yet for sale.</p>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow eyebrow-light"><span class="dot"></span>A student-led idea from Nova Scotia</p>
+        <h1>A second life for milk.<br /><em>A new idea for plant care.</em></h1>
+        <p class="lead">We're exploring how repurposed milk could become a gentle liquid fertilizer for houseplants and home gardens.</p>
+
+        <div class="hero-rule">
+          <span>Good things deserve to grow again</span>
         </div>
 
-        <div class="hero-art" aria-hidden="true">
-          <svg viewBox="0 0 400 440" class="bottle-svg">
-            <defs>
-              <linearGradient id="glass" x1="0" x2="1">
-                <stop offset="0" stop-color="#e9ecdf"/>
-                <stop offset=".55" stop-color="#ffffff"/>
-                <stop offset="1" stop-color="#d9dfcd"/>
-              </linearGradient>
-              <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#f6f1e2"/>
-                <stop offset="1" stop-color="#e6dcc0"/>
-              </linearGradient>
-            </defs>
-            <circle cx="200" cy="230" r="170" fill="#21392b"/>
-            <circle cx="200" cy="230" r="170" fill="none" stroke="#8fae7e" stroke-opacity=".35" stroke-dasharray="3 9"/>
-            <!-- leaves -->
-            <g class="sway">
-              <path d="M300 330c-6-60 22-104 70-118-2 56-26 100-70 118Z" fill="#8fae7e"/>
-              <path d="M300 330c10-40 30-72 62-100" stroke="#21392b" stroke-width="2" fill="none"/>
-            </g>
-            <g class="sway sway-2">
-              <path d="M96 340c-40-36-46-86-18-126 34 34 44 82 18 126Z" fill="#6f8f60"/>
-              <path d="M96 340c-6-40-10-80-18-126" stroke="#21392b" stroke-width="2" fill="none"/>
-            </g>
-            <!-- bottle -->
-            <rect x="172" y="70" width="56" height="40" rx="8" fill="#16291f"/>
-            <rect x="180" y="104" width="40" height="22" fill="#d9dfcd"/>
-            <path d="M150 150c0-14 18-26 30-26h40c12 0 30 12 30 26v210c0 14-10 24-24 24h-52c-14 0-24-10-24-24Z" fill="url(#glass)"/>
-            <path d="M154 200h92v158c0 12-8 20-20 20h-52c-12 0-20-8-20-20Z" fill="url(#liquid)"/>
-            <rect x="166" y="232" width="68" height="96" rx="10" fill="#16291f"/>
-            <g transform="translate(184 244) scale(.5)" color="#eef0e4" style="--mark-cut:#16291f"><use href="#mark" width="64" height="64"/></g>
-            <text x="200" y="302" text-anchor="middle" fill="#eef0e4" font-family="Inter Tight, sans-serif" font-size="11" font-weight="600" letter-spacing="3">DAIREE</text>
-            <text x="200" y="316" text-anchor="middle" fill="#8fae7e" font-family="Inter Tight, sans-serif" font-size="7" letter-spacing="1.5">PROTOTYPE</text>
-            <path d="M162 160v170" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".7"/>
-            <!-- drop -->
-            <path class="drip" d="M200 20c-7 10-13 17-13 24a13 13 0 0 0 26 0c0-7-6-14-13-24Z" fill="#f6f1e2"/>
-          </svg>
+        <div class="hero-ctas">
+          <a href="#idea" class="btn btn-cream">Discover Dairee <span aria-hidden="true">↗</span></a>
+          <a href="#join" class="follow">
+            <span class="mouse" aria-hidden="true"><span></span></span>
+            Follow our progress
+          </a>
         </div>
-      </div>
-      <div class="hero-foot container">
-        <span>Good things deserve to grow again</span>
-        <span>Saint Mary's University · Halifax, NS</span>
+        <div class="hero-foot">
+          <span>Halifax, Nova Scotia</span>
+          <span class="status"><span class="pulse" aria-hidden="true"></span>In development. Not yet for sale.</span>
+        </div>
       </div>
     </section>
 
-    <!-- ========== 01 IDEA ========== -->
+    <!-- ========== MARQUEE ========== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="m-row m-row-1">
+        <div class="m-track">
+          <span>Recover</span><i>—</i><em>Formulate</em><i>—</i><span>Evaluate</span><i>—</i><em>Grow</em><i>—</i>
+          <span>Recover</span><i>—</i><em>Formulate</em><i>—</i><span>Evaluate</span><i>—</i><em>Grow</em><i>—</i>
+        </div>
+      </div>
+      <div class="m-row m-row-2">
+        <div class="m-track">
+          <span class="outline">Second life</span><i>—</i><em>new purpose</em><i>—</i><span class="outline">Second life</span><i>—</i><em>new purpose</em><i>—</i>
+          <span class="outline">Second life</span><i>—</i><em>new purpose</em><i>—</i><span class="outline">Second life</span><i>—</i><em>new purpose</em><i>—</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 01 THE IDEA ========== -->
     <section class="section idea" id="idea">
-      <div class="container two-col">
-        <div class="reveal">
+      <div class="container">
+        <div class="idea-head reveal">
           <p class="eyebrow"><span class="dot"></span>01 / The idea</p>
           <h2>What gets left behind could <em>start something new.</em></h2>
+          <p class="body-lg">Some milk never reaches a glass. It's past its date, unsold or surplus, and it often gets poured away. Dairee is a student-led startup asking a simple question: <strong>could that milk become a useful fertilizer for plants?</strong></p>
+          <p>We're developing the idea carefully, with home gardeners and houseplant lovers in mind. The product is still in development, and its formulation and performance haven't been validated yet.</p>
         </div>
-        <div class="reveal">
-          <p class="body-lg">Some milk never reaches a glass. It's past its date, unsold, or surplus to what's needed, and it often ends up poured away.</p>
-          <p>Dairee is a student-led startup asking a simple question: <strong>can that milk become a useful fertilizer for plants?</strong> We're developing the idea carefully, with home gardeners and houseplant lovers in mind.</p>
-        </div>
-      </div>
 
-      <div class="container">
-        <ul class="pillars">
+        <figure class="photo-card soil reveal">
+          <img src="assets/soil.jpg" width="1180" height="470" loading="lazy" alt="A green garden trowel full of dark potting soil, with moss on a pale work surface." />
+          <figcaption class="overlay-card">
+            <p class="eyebrow"><span class="ring"></span>Made for growers</p>
+            <h3>For the little things you love to grow</h3>
+            <p>Designed around the everyday routines of indoor growers and home gardeners.</p>
+          </figcaption>
+        </figure>
+
+        <ol class="pillars">
           <li class="pillar reveal">
+            <span class="num-ring">01</span>
+            <div>
+              <h3>Student-led</h3>
+              <p>Began at Saint Mary's University in Halifax, with an entrepreneurial mindset for a familiar challenge.</p>
+            </div>
             <span class="pillar-tag">SMU</span>
-            <h3>Student-led</h3>
-            <p>Started at Saint Mary's University in Halifax, with an entrepreneurial mindset and a familiar problem.</p>
           </li>
           <li class="pillar reveal">
+            <span class="num-ring">02</span>
+            <div>
+              <h3>Evidence first</h3>
+              <p>We need to evaluate nutrient content, stability and plant response before making any performance claims.</p>
+            </div>
             <span class="pillar-tag">Testing</span>
-            <h3>Evidence first</h3>
-            <p>We need to evaluate nutrient content, stability and how plants respond before we make any performance claims.</p>
           </li>
           <li class="pillar reveal">
+            <span class="num-ring">03</span>
+            <div>
+              <h3>In development</h3>
+              <p>Dairee isn't for sale yet. We're still developing and evaluating the concept.</p>
+            </div>
             <span class="pillar-tag">2026</span>
-            <h3>Built in the open</h3>
-            <p>We share what we learn as we go, including what doesn't work. Gardeners can help steer what we build.</p>
           </li>
-        </ul>
-        <p class="footnote reveal">Dairee is progressing in the SMU Innovation Cup. Right now we're focused on customer discovery and building a first prototype.</p>
+        </ol>
+        <p class="footnote reveal">*Progressing in the SMU Innovation Cup. Our focus now is customer discovery and a first prototype.</p>
       </div>
     </section>
 
-    <!-- ========== 02 PROCESS ========== -->
+    <!-- ========== 02 PROCESS (interactive orbit) ========== -->
     <section class="section process" id="process">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow"><span class="dot"></span>02 / Planned development path</p>
+        <div class="center-head reveal">
+          <p class="eyebrow eyebrow-center"><span class="dot"></span>02 / Our process: planned development path<span class="dot"></span></p>
           <h2>How milk could find <em>a new purpose.</em></h2>
-          <p>This is the path we plan to follow. It is not yet a validated production process or a finished formula.</p>
+          <p class="body-lg">This is Dairee's planned development path, not a validated production process or a finished formula.</p>
         </div>
 
-        <ol class="timeline">
-          <li class="t-step done reveal">
-            <span class="t-num">01</span>
-            <span class="t-state">Underway</span>
-            <h3>Recover</h3>
-            <p>Find sources of milk that could be redirected, and learn what reliable collection and storage would take.</p>
-          </li>
-          <li class="t-step now reveal">
-            <span class="t-num">02</span>
-            <span class="t-state">We are here</span>
-            <h3>Formulate</h3>
-            <p>Build and refine candidate liquid formulations. We're still working out ingredients, ratios, shelf life and packaging.</p>
-          </li>
-          <li class="t-step reveal">
-            <span class="t-num">03</span>
-            <span class="t-state">Next</span>
-            <h3>Evaluate</h3>
-            <p>Test nutrient content, stability, odour and real plant response, then share the results honestly, good or bad.</p>
-          </li>
-          <li class="t-step reveal">
-            <span class="t-num">04</span>
-            <span class="t-state">Only if it works</span>
-            <h3>Grow</h3>
-            <p>If the evidence holds up, run a small pilot with local growers before thinking about anything bigger.</p>
-          </li>
-        </ol>
+        <div class="orbit-wrap reveal">
+          <div class="orbit" id="orbit" data-step="0" aria-hidden="true">
+            <div class="orbit-ring"><span class="orbit-dot"></span></div>
+            <div class="orbit-core">
+              <!-- 01 carton -->
+              <svg class="icon icon-0" viewBox="0 0 120 140">
+                <g transform="rotate(-12 60 70)">
+                  <path d="M34 40h52v86a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6Z" fill="#fff" stroke="#e1e6d5"/>
+                  <path d="M34 40 46 16h28l12 24Z" fill="#fff" stroke="#e1e6d5"/>
+                  <path d="M30 40h60M46 16l14 24 14-24" stroke="#16291f" stroke-width="4" fill="none" stroke-linecap="round"/>
+                  <path d="M60 66c-6 8-11 14-11 20a11 11 0 0 0 22 0c0-6-5-12-11-20Z" fill="#7f9a6c"/>
+                  <text x="60" y="118" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="800" font-size="11" letter-spacing="3" fill="#16291f">MILK</text>
+                </g>
+              </svg>
+              <!-- 02 flask -->
+              <svg class="icon icon-1" viewBox="0 0 120 140">
+                <path d="M48 18h24M52 18v36L28 110a10 10 0 0 0 9 14h46a10 10 0 0 0 9-14L68 54V18" fill="#fff" stroke="#16291f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M38 96h44l8 16a6 6 0 0 1-5 8H35a6 6 0 0 1-5-8Z" fill="#f3ecd9"/>
+                <circle cx="54" cy="84" r="4" fill="#7f9a6c"/><circle cx="66" cy="74" r="3" fill="#7f9a6c"/><circle cx="62" cy="62" r="2" fill="#7f9a6c"/>
+              </svg>
+              <!-- 03 magnifier -->
+              <svg class="icon icon-2" viewBox="0 0 120 140">
+                <path d="M52 92V70m0 6c-8 0-13-5-13-13 8 0 13 5 13 13Zm0-2c0-8 5-13 13-13 0 8-5 13-13 13Z" fill="#7f9a6c" stroke="#7f9a6c" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="52" cy="72" r="32" fill="none" stroke="#16291f" stroke-width="5"/>
+                <path d="M75 96l22 22" stroke="#16291f" stroke-width="9" stroke-linecap="round"/>
+              </svg>
+              <!-- 04 sprout in pot -->
+              <svg class="icon icon-3" viewBox="0 0 120 140">
+                <path d="M60 84V46" stroke="#16291f" stroke-width="4" stroke-linecap="round"/>
+                <path d="M58 62c-18 0-28-10-28-28 18 0 28 10 28 28Z" fill="#7f9a6c"/>
+                <path d="M62 54c0-18 10-28 28-28 0 18-10 28-28 28Z" fill="#a8c094"/>
+                <path d="M30 84h60l-8 42a6 6 0 0 1-6 5H44a6 6 0 0 1-6-5Z" fill="#c9784a"/>
+                <rect x="26" y="78" width="68" height="12" rx="4" fill="#b5673c"/>
+              </svg>
+            </div>
+          </div>
+
+          <ol class="steps" id="steps">
+            <li class="step" data-i="0">
+              <button type="button" class="step-btn" aria-pressed="true">
+                <span class="step-kicker">01 · Recover <span class="badge done">Underway</span></span>
+                <span class="step-title">Start with what can be repurposed.</span>
+                <span class="step-text">Explore potential sources of milk that could be redirected, and learn what reliable collection and storage would require.</span>
+              </button>
+            </li>
+            <li class="step" data-i="1">
+              <button type="button" class="step-btn" aria-pressed="false">
+                <span class="step-kicker">02 · Formulate <span class="badge now">We are here</span></span>
+                <span class="step-title">Develop a liquid concept.</span>
+                <span class="step-text">Build and refine candidate fertilizer formulations. We're still working out ingredients, ratios, shelf life and packaging.</span>
+              </button>
+            </li>
+            <li class="step" data-i="2">
+              <button type="button" class="step-btn" aria-pressed="false">
+                <span class="step-kicker">03 · Evaluate <span class="badge">Next</span></span>
+                <span class="step-title">Measure before we claim.</span>
+                <span class="step-text">Test nutrient content, stability, odour and real plant response, then share the results honestly, good or bad.</span>
+              </button>
+            </li>
+            <li class="step" data-i="3">
+              <button type="button" class="step-btn" aria-pressed="false">
+                <span class="step-kicker">04 · Grow <span class="badge">Only if it works</span></span>
+                <span class="step-title">Pilot with local growers.</span>
+                <span class="step-text">If the evidence holds up, run a small pilot with Nova Scotia gardeners before thinking about anything bigger.</span>
+              </button>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
     <!-- ========== 03 PRODUCT ========== -->
     <section class="section product" id="product">
-      <div class="container two-col align-center">
-        <div class="product-card reveal" aria-hidden="true">
-          <div class="pot">
-            <svg viewBox="0 0 240 260">
-              <path d="M120 150c-4-40 6-80 30-104 10 34 2 76-30 104Z" fill="#6f8f60"/>
-              <path d="M120 150c-30-14-48-44-46-80 30 10 46 42 46 80Z" fill="#8fae7e"/>
-              <path d="M120 160v-60" stroke="#16291f" stroke-width="3" stroke-linecap="round"/>
-              <path d="M62 150h116l-14 96a10 10 0 0 1-10 8H86a10 10 0 0 1-10-8Z" fill="#c9784a"/>
-              <rect x="54" y="142" width="132" height="22" rx="6" fill="#b5673c"/>
-            </svg>
-          </div>
-          <span class="product-tag">For the little things you love to grow</span>
-        </div>
-        <div class="reveal">
+      <div class="container">
+        <div class="product-head reveal">
           <p class="eyebrow"><span class="dot"></span>03 / Plant care, with a second purpose</p>
-          <h2>A little bottle. <em>A bigger idea.</em></h2>
-          <p class="body-lg">We're exploring a liquid fertilizer that fits the everyday routines of indoor growers and home gardeners: a few drops in the watering can, not a new hobby.</p>
+          <h2>So, we're rethinking what plant care could be <em>made of.</em></h2>
+          <p class="body-lg">A look at the work between an early idea and a fertilizer gardeners could trust: built carefully, tested honestly and rooted in Nova Scotia.</p>
+        </div>
 
-          <div class="known">
-            <div>
-              <h3>What we're exploring</h3>
-              <ul>
-                <li>A liquid fertilizer you add while watering</li>
-                <li>Made with repurposed, otherwise-unused milk</li>
-                <li>Simple packaging sized for houseplants</li>
-              </ul>
-            </div>
-            <div>
-              <h3>What we don't know yet</h3>
-              <ul>
-                <li>How plants actually respond</li>
-                <li>Shelf life, stability and odour</li>
-                <li>Price and the best format</li>
-              </ul>
+        <article class="product-card reveal">
+          <figure class="product-photo">
+            <img src="assets/cactus.jpg" width="1178" height="1080" loading="lazy" alt="A small cactus in a terracotta pot against a soft pink wall." />
+            <span class="photo-pill">For the little things you love to grow</span>
+          </figure>
+          <div class="product-body">
+            <h2>A little bottle. <em>A bigger idea.</em></h2>
+            <p class="body-lg">We're exploring a liquid fertilizer that fits the everyday routines of indoor growers and home gardeners: a few drops in the watering can, not a new hobby.</p>
+            <div class="known">
+              <div>
+                <h3>What we're exploring</h3>
+                <ul>
+                  <li>A liquid fertilizer you add while watering</li>
+                  <li>Made with repurposed, otherwise-unused milk</li>
+                  <li>Simple packaging sized for houseplants</li>
+                </ul>
+              </div>
+              <div>
+                <h3>What we don't know yet</h3>
+                <ul>
+                  <li>How plants actually respond</li>
+                  <li>Shelf life, stability and odour</li>
+                  <li>Price and the best format</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <!-- ========== HONEST BAND ========== -->
-    <section class="honest">
-      <div class="container honest-inner reveal">
-        <svg class="honest-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4C22 18 12 30 12 42a20 20 0 0 0 40 0C52 30 42 18 32 4Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M32 50V38m0 3c-4 0-7-3-7-7 4 0 7 3 7 7Zm0-1c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-        <div>
+        <div class="honest reveal">
+          <svg class="honest-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4C22 18 12 30 12 42a20 20 0 0 0 40 0C52 30 42 18 32 4Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M32 50V38m0 3c-4 0-7-3-7-7 4 0 7 3 7 7Zm0-1c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           <h2>Honest, <em>from the start.</em></h2>
-          <p>Dairee is still in development. We haven't validated the formulation or how well it works yet, and we'll measure before we make claims.</p>
+          <p>Still in development. Formulation and performance haven't been validated yet, and we'll measure before we make claims.</p>
+          <p class="honest-tag">In development. Not yet for sale.</p>
         </div>
-        <p class="honest-tag">In development. Not yet for sale.</p>
       </div>
     </section>
 
@@ -244,24 +277,26 @@
     <section class="section team" id="team">
       <div class="container">
         <div class="team-head reveal">
-          <p class="eyebrow eyebrow-light"><span class="dot"></span>04 / The founding team</p>
-          <span class="team-year">Dairee / 2026</span>
+          <span>04 / About the founding team</span>
+          <span>Dairee / 2026</span>
         </div>
         <div class="team-grid">
           <figure class="team-photo reveal">
             <img src="assets/team.jpg" width="1176" height="1180" loading="lazy" alt="The three Dairee co-founders standing together in matching brown Dairee t-shirts at a Saint Mary's University event." />
+            <figcaption class="photo-pill">The people behind the Dairee idea</figcaption>
           </figure>
           <div class="team-copy reveal">
-            <h2>The people behind <em>the Dairee idea.</em></h2>
-            <p>We're students at Saint Mary's University in Halifax. Between us we bring business, science and a lot of curiosity, plus a shared dislike of good things going to waste.</p>
-            <!-- TODO: add a .people list with each founder's name and role once confirmed -->
-            <a href="#join" class="btn btn-light">Talk to the team <span aria-hidden="true">→</span></a>
+            <h2>Three students, <em>one stubborn idea.</em></h2>
+            <p>We're students at Saint Mary's University in Halifax. We share a dislike of good things going to waste and a belief that the best ideas get tested in the open.</p>
+            <!-- TODO: add founder names and roles, e.g.
+            <ul class="people"><li><strong>Name</strong><span>Role</span></li>…</ul> -->
+            <a href="#join" class="btn btn-cream">Talk to the team <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== 05 JOIN / CUSTOMER DISCOVERY ========== -->
+    <!-- ========== 05 HELP SHAPE IT ========== -->
     <section class="section join" id="join">
       <div class="container two-col">
         <div class="reveal">
@@ -284,7 +319,6 @@
               <label><input type="checkbox" name="grow" value="Succulents" /><span>Succulents</span></label>
             </div>
           </fieldset>
-
           <fieldset>
             <legend>Do you use plant food or fertilizer today?</legend>
             <div class="chips">
@@ -293,7 +327,6 @@
               <label><input type="radio" name="feed" value="Never" /><span>Never</span></label>
             </div>
           </fieldset>
-
           <fieldset>
             <legend>Would you try a fertilizer made with repurposed milk?</legend>
             <div class="chips">
@@ -302,16 +335,13 @@
               <label><input type="radio" name="try" value="No" /><span>No</span></label>
             </div>
           </fieldset>
-
           <label class="field">What would make you hesitate? <span class="opt">(optional)</span>
             <textarea name="concern" rows="3" placeholder="e.g. smell, price, whether it's safe for my plants"></textarea>
           </label>
-
           <label class="field">Email for updates and prototype testing <span class="opt">(optional)</span>
             <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
           </label>
-
-          <button type="submit" class="btn">Send my answers</button>
+          <button type="submit" class="btn btn-dark">Send my answers <span aria-hidden="true">↗</span></button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -339,7 +369,7 @@
           </details>
           <details>
             <summary>Where would the milk come from?</summary>
-            <p>We're exploring sources of milk that would otherwise go unused, such as surplus or unsold product. We're learning what reliable collection and storage would require.</p>
+            <p>We're exploring sources of milk that would otherwise go unused, such as surplus or unsold product, and learning what reliable collection and storage would require.</p>
           </details>
           <details>
             <summary>I work at a dairy, retailer or lab. Can we talk?</summary>
@@ -352,31 +382,33 @@
 
   <!-- ========== FOOTER ========== -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a href="#top" class="logo logo-light" aria-label="Dairee — back to top">
-          <svg aria-hidden="true" style="--mark-cut:#16291f"><use href="#mark"/></svg>
-          <span>dairee</span>
-        </a>
-        <p class="footer-tag">Good things deserve to grow again.</p>
+    <div class="container">
+      <p class="footer-big">Good things deserve <em>to grow again.</em></p>
+      <div class="footer-grid">
+        <div>
+          <a href="#top" class="logo-badge logo-badge-dark" aria-label="Dairee — back to top">
+            <svg aria-hidden="true"><use href="#mark"/></svg>
+            <span>DAIREE</span>
+          </a>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="#idea">The idea</a>
+          <a href="#process">Process</a>
+          <a href="#team">Team</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h4>Say hello</h4>
+          <!-- TODO: confirm the real address and add social links -->
+          <a href="mailto:hello@dairee.com">hello@dairee.com</a>
+          <p>Halifax, Nova Scotia</p>
+        </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <a href="#idea">The idea</a>
-        <a href="#process">Process</a>
-        <a href="#team">Team</a>
-        <a href="#faq">FAQ</a>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Dairee. A student venture from Saint Mary's University.</span>
+        <span>In development. No product is currently for sale, and no performance claims are made.</span>
       </div>
-      <div>
-        <h4>Say hello</h4>
-        <!-- TODO: confirm the real address and social links -->
-        <a href="mailto:hello@dairee.com">hello@dairee.com</a>
-        <span>Halifax, Nova Scotia</span>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="year">2026</span> Dairee. A student venture from Saint Mary's University.</span>
-      <span>Dairee is in development. No product is currently for sale, and no performance claims are made.</span>
     </div>
   </footer>
 

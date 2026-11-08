@@ -5,7 +5,7 @@ Static site for **Dairee**, a student-led startup from Saint Mary's University i
 - `index.html` — page: hero, the idea, development path, product concept, "honest from the start", team, customer-discovery survey, FAQ, footer
 - `styles.css` — design tokens (forest / sage / paper), layout, responsive and reduced-motion rules
 - `script.js` — header state, mobile menu, scroll reveals, survey handling
-- `assets/team.jpg` — founding team photo
+- `assets/` — team photo plus soil and cactus photos cropped from the first draft (replace with full-resolution originals when available)
 
 Open `index.html` in a browser, or deploy the folder to any static host (GitHub Pages, Netlify, Vercel).
 

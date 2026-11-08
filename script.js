@@ -5,8 +5,6 @@ const FORM_ENDPOINT = '';
 const CONTACT_EMAIL = 'hello@dairee.com';
 // -------------------------------------------------------------------------
 
-document.documentElement.classList.add('js');
-
 // Header: transparent over the hero, solid once scrolled
 const header = document.querySelector('.site-header');
 const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
@@ -36,6 +34,27 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 } else {
   document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+}
+
+// Process orbit: tap a step to show it; gently auto-cycles until someone interacts
+const orbit = document.getElementById('orbit');
+const stepBtns = [...document.querySelectorAll('.step-btn')];
+let auto = null;
+const setStep = (i) => {
+  orbit.dataset.step = String(i);
+  stepBtns.forEach((b, j) => b.setAttribute('aria-pressed', String(i === j)));
+};
+const stopAuto = () => { clearInterval(auto); auto = null; };
+stepBtns.forEach((b, i) => b.addEventListener('click', () => { stopAuto(); setStep(i); }));
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduceMotion && 'IntersectionObserver' in window) {
+  let touched = false;
+  stepBtns.forEach((b) => b.addEventListener('click', () => { touched = true; }));
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !auto && !touched) {
+      auto = setInterval(() => setStep((Number(orbit.dataset.step) + 1) % stepBtns.length), 3200);
+    } else if (!e.isIntersecting) stopAuto();
+  }, { threshold: 0.4 }).observe(orbit.parentElement);
 }
 
 // Survey
