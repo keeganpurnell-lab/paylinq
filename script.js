@@ -2,7 +2,7 @@
 // Paste a form endpoint (e.g. https://formspree.io/f/xxxxxxx) to collect
 // survey answers. While it's empty, answers open as a pre-filled email instead.
 const FORM_ENDPOINT = '';
-const CONTACT_EMAIL = 'hello@dairee.com';
+const CONTACT_EMAIL = 'getdairee@gmail.com';
 // -------------------------------------------------------------------------
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

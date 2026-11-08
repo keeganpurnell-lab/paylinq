@@ -19,6 +19,6 @@ If the repo is renamed or a custom domain is added, update the full URLs in `ind
 
 ## Still to do
 1. **Survey:** set `FORM_ENDPOINT` in `script.js` (e.g. a Formspree URL). Until then answers open as a pre-filled email.
-2. **Contact:** confirm the email address (`hello@dairee.com` is a placeholder) and add Instagram/LinkedIn.
+2. **Contact:** email getdairee@gmail.com, Instagram @getdairee (already on the site). Add LinkedIn links if wanted.
 3. **Progress log:** remove `hidden` from `<section id="learned">` and fill in real results.
 4. **Photos:** replace the soil and cactus photos (cropped from the first draft) with originals or your own prototype photos.
