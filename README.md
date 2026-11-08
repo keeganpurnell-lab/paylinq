@@ -1,6 +1,6 @@
 # Dairee — website
 
-Static site for **Dairee**, a student-led startup from Saint Mary's University in Halifax, Nova Scotia. Dairee is exploring how milk that would otherwise go unused could become a liquid plant-care product. It is in development and not for sale, and the site makes no performance claims.
+Static site for **Dairee**, a student-led startup from Saint Mary's University in Halifax, Nova Scotia. Dairee is exploring how milk that would otherwise go unused could become a liquid fertilizer for houseplants and home gardens. It is in development and not for sale, and the site makes no performance claims.
 
 - `index.html` — page: hero, the idea, development path, product concept, "honest from the start", team, customer-discovery survey, FAQ, footer
 - `styles.css` — design tokens (forest / sage / paper), layout, responsive and reduced-motion rules
