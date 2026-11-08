@@ -1,64 +1,90 @@
-// Sticky header shadow
+// ---- Config -------------------------------------------------------------
+// Paste a form endpoint (e.g. https://formspree.io/f/xxxxxxx) to collect
+// survey answers. While it's empty, answers open as a pre-filled email instead.
+const FORM_ENDPOINT = '';
+const CONTACT_EMAIL = 'hello@dairee.com';
+// -------------------------------------------------------------------------
+
+document.documentElement.classList.add('js');
+
+// Header: transparent over the hero, solid once scrolled
 const header = document.querySelector('.site-header');
-const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 // Mobile nav
 const toggle = document.getElementById('navToggle');
-toggle.addEventListener('click', () => {
-  const open = document.body.classList.toggle('nav-open');
+const setNav = (open) => {
+  document.body.classList.toggle('nav-open', open);
   toggle.setAttribute('aria-expanded', String(open));
-});
-document.querySelectorAll('.nav a').forEach((a) =>
-  a.addEventListener('click', () => {
-    document.body.classList.remove('nav-open');
-    toggle.setAttribute('aria-expanded', 'false');
-  })
-);
-
-// Reveal on scroll + count-up stats
-const countUp = (el) => {
-  const target = Number(el.dataset.count);
-  const start = performance.now();
-  const dur = 1400;
-  const tick = (t) => {
-    const p = Math.min((t - start) / dur, 1);
-    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-    if (p < 1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
+  toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
 };
+toggle.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
+document.querySelectorAll('.nav a').forEach((a) => a.addEventListener('click', () => setNav(false)));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setNav(false); });
 
+// Reveal on scroll
 if ('IntersectionObserver' in window) {
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('in');
-        e.target.querySelectorAll('[data-count]').forEach(countUp);
-        io.unobserve(e.target);
-      });
-    },
-    { threshold: 0.15 }
-  );
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 } else {
   document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
-  document.querySelectorAll('[data-count]').forEach((el) => (el.textContent = el.dataset.count));
 }
 
-// Contact form (front-end only — wire to a backend/form service when ready)
-const form = document.getElementById('contactForm');
+// Survey
+const form = document.getElementById('survey');
 const status = document.getElementById('formStatus');
-form.addEventListener('submit', (e) => {
+const say = (msg, err = false) => { status.textContent = msg; status.classList.toggle('error', err); };
+
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  if (!form.checkValidity()) {
-    status.textContent = 'Please fill in your name, a valid email and a message.';
+  const data = new FormData(form);
+  const answered = ['grow', 'feed', 'try'].some((k) => data.getAll(k).length) || data.get('concern').trim();
+  const email = data.get('email').trim();
+
+  if (!answered && !email) return say('Pick at least one answer, or leave your email.', true);
+  if (email && !form.email.checkValidity()) return say('That email doesn’t look quite right.', true);
+
+  const summary = {
+    grows: data.getAll('grow').join(', ') || '—',
+    uses_plant_food: data.get('feed') || '—',
+    would_try: data.get('try') || '—',
+    hesitation: data.get('concern').trim() || '—',
+    email: email || '—',
+  };
+
+  if (FORM_ENDPOINT) {
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    say('Sending…');
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(summary),
+      });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      say('Thank you! Your answers really help us decide what to build.');
+    } catch {
+      say('Something went wrong. Please try again, or email us.', true);
+    } finally {
+      btn.disabled = false;
+    }
     return;
   }
-  status.textContent = 'Thank you! We’ll be in touch shortly.';
-  form.reset();
+
+  // No endpoint yet: open a pre-filled email so no answers are lost
+  const body = Object.entries(summary).map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`).join('\n');
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Dairee survey answers')}&body=${encodeURIComponent(body)}`;
+  say('Your email app should open with your answers. Just hit send. Thank you!');
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();

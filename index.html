@@ -2,31 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dairee — Material from Milk That Never Made It</title>
-  <meta name="description" content="Dairee turns surplus and waste dairy into a plastic-free, leather-like biomaterial for fashion, footwear, interiors and automotive." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Dairee — A second life for milk</title>
+  <meta name="description" content="Dairee is a student-led startup from Halifax, Nova Scotia, exploring how milk that would otherwise go unused could become a liquid plant-care product. In development, not yet for sale." />
+  <meta name="theme-color" content="#16291f" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dairee — A second life for milk" />
+  <meta property="og:description" content="A student-led idea from Nova Scotia: repurposing unused milk into thoughtful plant care. Help shape it." />
+  <meta property="og:image" content="assets/team.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4C22 18 12 30 12 42a20 20 0 0 0 40 0C52 30 42 18 32 4Z' fill='%23243b2f'/%3E%3C/svg%3E" />
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 3C22 17 11 29 11 42a21 21 0 0 0 42 0C53 29 42 17 32 3Z' fill='%2316291f'/%3E%3Cpath d='M32 52V36M32 40c-6 0-10-4-10-10 6 0 10 4 10 10Zm0-2c0-6 4-10 10-10 0 6-4 10-10 10Z' fill='%23eef0e4' stroke='%23eef0e4' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Reusable logo mark -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 64 64">
+      <path d="M32 3C22 17 11 29 11 42a21 21 0 0 0 42 0C53 29 42 17 32 3Z" fill="currentColor"/>
+      <path d="M32 53V37" stroke="var(--mark-cut, #f4f3ec)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M31 41c-7 0-11-4.5-11-11 7 0 11 4.5 11 11Z" fill="var(--mark-cut, #f4f3ec)"/>
+      <path d="M33 38c0-7 4.5-11 11-11 0 7-4.5 11-11 11Z" fill="var(--mark-cut, #f4f3ec)"/>
+    </symbol>
+  </svg>
 
   <!-- ========== HEADER ========== -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="#top" class="logo" aria-label="Dairee home">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4C22 18 12 30 12 42a20 20 0 0 0 40 0C52 30 42 18 32 4Z"/></svg>
+      <a href="#top" class="logo" aria-label="Dairee — back to top">
+        <svg aria-hidden="true"><use href="#mark"/></svg>
         <span>dairee</span>
       </a>
       <nav class="nav" id="nav" aria-label="Primary">
-        <a href="#about">About</a>
+        <a href="#idea">The idea</a>
         <a href="#process">Process</a>
-        <a href="#material">Material</a>
-        <a href="#applications">Applications</a>
-        <a href="#impact">Impact</a>
-        <a href="#contact" class="btn btn-small">Get Samples</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
+        <a href="#join" class="btn btn-small">Help shape Dairee</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span>
@@ -34,227 +53,299 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ========== HERO ========== -->
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Biomaterials from dairy waste</p>
-          <h1>From spilt milk<br/>to <em>finest&nbsp;leather.</em></h1>
-          <p class="lead">Every year, millions of tonnes of milk are poured away before they reach a glass. Dairee turns that surplus into a plastic-free, leather-like material. It is soft to the touch and built to last.</p>
+        <div class="hero-copy">
+          <p class="eyebrow eyebrow-light"><span class="dot"></span>A student-led idea from Halifax, Nova Scotia</p>
+          <h1>A second life for milk.<br /><em>A new idea for plant care.</em></h1>
+          <p class="lead">We're exploring how milk that would otherwise go unused could become a thoughtful liquid plant-care product for indoor growers and home gardeners.</p>
           <div class="hero-ctas">
-            <a href="#contact" class="btn">Request a swatch</a>
-            <a href="#process" class="btn btn-ghost">See how it's made →</a>
+            <a href="#join" class="btn btn-light">Help shape Dairee <span aria-hidden="true">→</span></a>
+            <a href="#process" class="btn btn-outline-light">How it could work</a>
           </div>
+          <p class="status-pill"><span class="pulse" aria-hidden="true"></span>In development. Not yet for sale.</p>
         </div>
-        <div class="hero-art reveal" aria-hidden="true">
-          <div class="swatch swatch-1"></div>
-          <div class="swatch swatch-2"></div>
-          <div class="swatch swatch-3"></div>
-          <div class="drop"></div>
+
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 400 440" class="bottle-svg">
+            <defs>
+              <linearGradient id="glass" x1="0" x2="1">
+                <stop offset="0" stop-color="#e9ecdf"/>
+                <stop offset=".55" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#d9dfcd"/>
+              </linearGradient>
+              <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#f6f1e2"/>
+                <stop offset="1" stop-color="#e6dcc0"/>
+              </linearGradient>
+            </defs>
+            <circle cx="200" cy="230" r="170" fill="#21392b"/>
+            <circle cx="200" cy="230" r="170" fill="none" stroke="#8fae7e" stroke-opacity=".35" stroke-dasharray="3 9"/>
+            <!-- leaves -->
+            <g class="sway">
+              <path d="M300 330c-6-60 22-104 70-118-2 56-26 100-70 118Z" fill="#8fae7e"/>
+              <path d="M300 330c10-40 30-72 62-100" stroke="#21392b" stroke-width="2" fill="none"/>
+            </g>
+            <g class="sway sway-2">
+              <path d="M96 340c-40-36-46-86-18-126 34 34 44 82 18 126Z" fill="#6f8f60"/>
+              <path d="M96 340c-6-40-10-80-18-126" stroke="#21392b" stroke-width="2" fill="none"/>
+            </g>
+            <!-- bottle -->
+            <rect x="172" y="70" width="56" height="40" rx="8" fill="#16291f"/>
+            <rect x="180" y="104" width="40" height="22" fill="#d9dfcd"/>
+            <path d="M150 150c0-14 18-26 30-26h40c12 0 30 12 30 26v210c0 14-10 24-24 24h-52c-14 0-24-10-24-24Z" fill="url(#glass)"/>
+            <path d="M154 200h92v158c0 12-8 20-20 20h-52c-12 0-20-8-20-20Z" fill="url(#liquid)"/>
+            <rect x="166" y="232" width="68" height="96" rx="10" fill="#16291f"/>
+            <g transform="translate(184 244) scale(.5)" color="#eef0e4" style="--mark-cut:#16291f"><use href="#mark" width="64" height="64"/></g>
+            <text x="200" y="302" text-anchor="middle" fill="#eef0e4" font-family="Inter Tight, sans-serif" font-size="11" font-weight="600" letter-spacing="3">DAIREE</text>
+            <text x="200" y="316" text-anchor="middle" fill="#8fae7e" font-family="Inter Tight, sans-serif" font-size="7" letter-spacing="1.5">PROTOTYPE</text>
+            <path d="M162 160v170" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+            <!-- drop -->
+            <path class="drip" d="M200 20c-7 10-13 17-13 24a13 13 0 0 0 26 0c0-7-6-14-13-24Z" fill="#f6f1e2"/>
+          </svg>
         </div>
       </div>
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>Plastic-free</span><span>●</span><span>Animal-free tanning</span><span>●</span><span>Upcycled dairy</span><span>●</span><span>Chrome-free</span><span>●</span><span>Made to last</span><span>●</span>
-          <span>Plastic-free</span><span>●</span><span>Animal-free tanning</span><span>●</span><span>Upcycled dairy</span><span>●</span><span>Chrome-free</span><span>●</span><span>Made to last</span><span>●</span>
-        </div>
+      <div class="hero-foot container">
+        <span>Good things deserve to grow again</span>
+        <span>Saint Mary's University · Halifax, NS</span>
       </div>
     </section>
 
-    <!-- ========== ABOUT ========== -->
-    <section class="section about" id="about">
+    <!-- ========== 01 IDEA ========== -->
+    <section class="section idea" id="idea">
       <div class="container two-col">
         <div class="reveal">
-          <p class="eyebrow">Who we are</p>
-          <h2>A second life for the world's most wasted drink.</h2>
+          <p class="eyebrow"><span class="dot"></span>01 / The idea</p>
+          <h2>What gets left behind could <em>start something new.</em></h2>
         </div>
         <div class="reveal">
-          <p>About a sixth of the world's milk is lost or thrown out somewhere between the farm and the fridge. That includes spoiled batches, off-spec runs, whey left over from cheesemaking and product near its expiry date. Most of it goes to drains and landfill, where it pollutes water and releases methane.</p>
-          <p>Dairee is a materials science company. We recover the proteins in that milk and turn them into a durable, flexible sheet that looks and feels like leather. It contains no petroleum plastics and no animal hides. Our job is to make the waste useful.</p>
-          <a href="#process" class="link-arrow">Our process →</a>
+          <p class="body-lg">Some milk never reaches a glass. It's past its date, unsold, or surplus to what's needed, and it often ends up poured away.</p>
+          <p>Dairee is a student-led startup asking a simple question: <strong>can that milk be given a useful second purpose in plant care?</strong> We're developing the idea carefully, with home gardeners and houseplant lovers in mind.</p>
         </div>
       </div>
-    </section>
 
-    <!-- ========== STATS ========== -->
-    <section class="stats">
-      <div class="container stats-grid">
-        <div class="stat reveal"><span class="num" data-count="116">116</span><span class="unit">M t</span><p>of milk lost or wasted globally each year</p></div>
-        <div class="stat reveal"><span class="num" data-count="0">0</span><span class="unit">%</span><p>PU, PVC or petroleum binders in our core material</p></div>
-        <div class="stat reveal"><span class="num" data-count="12">12</span><span class="unit">L</span><p>of surplus milk recovered per square metre</p></div>
-        <div class="stat reveal"><span class="num" data-count="90">90</span><span class="unit">%</span><p>lower CO₂e than bovine leather (internal estimate)</p></div>
+      <div class="container">
+        <ul class="pillars">
+          <li class="pillar reveal">
+            <span class="pillar-tag">SMU</span>
+            <h3>Student-led</h3>
+            <p>Started at Saint Mary's University in Halifax, with an entrepreneurial mindset and a familiar problem.</p>
+          </li>
+          <li class="pillar reveal">
+            <span class="pillar-tag">Testing</span>
+            <h3>Evidence first</h3>
+            <p>We need to evaluate nutrient content, stability and how plants respond before we make any performance claims.</p>
+          </li>
+          <li class="pillar reveal">
+            <span class="pillar-tag">2026</span>
+            <h3>Built in the open</h3>
+            <p>We share what we learn as we go, including what doesn't work. Gardeners can help steer what we build.</p>
+          </li>
+        </ul>
+        <p class="footnote reveal">Dairee is progressing in the SMU Innovation Cup. Right now we're focused on customer discovery and building a first prototype.</p>
       </div>
     </section>
 
-    <!-- ========== PROCESS ========== -->
+    <!-- ========== 02 PROCESS ========== -->
     <section class="section process" id="process">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">How it's made</p>
-          <h2>Four steps from carton to collection.</h2>
+          <p class="eyebrow"><span class="dot"></span>02 / Planned development path</p>
+          <h2>How milk could find <em>a new purpose.</em></h2>
+          <p>This is the path we plan to follow. It is not yet a validated production process or a finished formula.</p>
         </div>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step-num">01</span>
+
+        <ol class="timeline">
+          <li class="t-step done reveal">
+            <span class="t-num">01</span>
+            <span class="t-state">Underway</span>
             <h3>Recover</h3>
-            <p>We partner with dairies, creameries and distributors to collect milk that can't be sold, before it goes down the drain.</p>
+            <p>Find sources of milk that could be redirected, and learn what reliable collection and storage would take.</p>
           </li>
-          <li class="step reveal">
-            <span class="step-num">02</span>
-            <h3>Extract</h3>
-            <p>Gentle, low-energy separation isolates casein and whey proteins. The leftover water and lactose go to biogas and irrigation partners.</p>
+          <li class="t-step now reveal">
+            <span class="t-num">02</span>
+            <span class="t-state">We are here</span>
+            <h3>Formulate</h3>
+            <p>Build and refine candidate liquid formulations. We're still working out ingredients, ratios, shelf life and packaging.</p>
           </li>
-          <li class="step reveal">
-            <span class="step-num">03</span>
-            <h3>Form</h3>
-            <p>The proteins are cross-linked with plant-based agents and cast onto natural-fibre backings. This gives the sheet its strength and drape.</p>
+          <li class="t-step reveal">
+            <span class="t-num">03</span>
+            <span class="t-state">Next</span>
+            <h3>Evaluate</h3>
+            <p>Test nutrient content, stability, odour and real plant response, then share the results honestly, good or bad.</p>
           </li>
-          <li class="step reveal">
-            <span class="step-num">04</span>
-            <h3>Finish</h3>
-            <p>Embossing, dyeing and finishing are done chrome-free, giving grain, colour and hand-feel to order. Then the rolls ship to makers.</p>
+          <li class="t-step reveal">
+            <span class="t-num">04</span>
+            <span class="t-state">Only if it works</span>
+            <h3>Grow</h3>
+            <p>If the evidence holds up, run a small pilot with local growers before thinking about anything bigger.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ========== MATERIAL ========== -->
-    <section class="section material" id="material">
+    <!-- ========== 03 PRODUCT ========== -->
+    <section class="section product" id="product">
       <div class="container two-col align-center">
-        <div class="material-visual reveal" aria-hidden="true">
-          <div class="roll"></div>
+        <div class="product-card reveal" aria-hidden="true">
+          <div class="pot">
+            <svg viewBox="0 0 240 260">
+              <path d="M120 150c-4-40 6-80 30-104 10 34 2 76-30 104Z" fill="#6f8f60"/>
+              <path d="M120 150c-30-14-48-44-46-80 30 10 46 42 46 80Z" fill="#8fae7e"/>
+              <path d="M120 160v-60" stroke="#16291f" stroke-width="3" stroke-linecap="round"/>
+              <path d="M62 150h116l-14 96a10 10 0 0 1-10 8H86a10 10 0 0 1-10-8Z" fill="#c9784a"/>
+              <rect x="54" y="142" width="132" height="22" rx="6" fill="#b5673c"/>
+            </svg>
+          </div>
+          <span class="product-tag">For the little things you love to grow</span>
         </div>
         <div class="reveal">
-          <p class="eyebrow">The material</p>
-          <h2>Meet <em>Curd™</em>, our first material.</h2>
-          <p>Curd is our first commercial material: a supple, breathable sheet with a fine natural grain. It cuts, stitches, skives and edges like leather, so workshops can use it without changing their tools.</p>
-          <ul class="spec-list">
-            <li><span>Thickness</span><span>0.8 – 1.6 mm</span></li>
-            <li><span>Roll width</span><span>140 cm</span></li>
-            <li><span>Finishes</span><span>Matte, semi-aniline, nappa, embossed</span></li>
-            <li><span>Backing</span><span>Organic cotton or hemp</span></li>
-            <li><span>Colours</span><span>12 core shades + custom</span></li>
+          <p class="eyebrow"><span class="dot"></span>03 / Plant care, with a second purpose</p>
+          <h2>A little bottle. <em>A bigger idea.</em></h2>
+          <p class="body-lg">We're exploring a liquid format that fits the everyday routines of indoor growers and home gardeners: a few drops in the watering can, not a new hobby.</p>
+
+          <div class="known">
+            <div>
+              <h3>What we're exploring</h3>
+              <ul>
+                <li>A liquid you add while watering</li>
+                <li>Made with repurposed, otherwise-unused milk</li>
+                <li>Simple packaging sized for houseplants</li>
+              </ul>
+            </div>
+            <div>
+              <h3>What we don't know yet</h3>
+              <ul>
+                <li>How plants actually respond</li>
+                <li>Shelf life, stability and odour</li>
+                <li>Price and the best format</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HONEST BAND ========== -->
+    <section class="honest">
+      <div class="container honest-inner reveal">
+        <svg class="honest-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4C22 18 12 30 12 42a20 20 0 0 0 40 0C52 30 42 18 32 4Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M32 50V38m0 3c-4 0-7-3-7-7 4 0 7 3 7 7Zm0-1c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <div>
+          <h2>Honest, <em>from the start.</em></h2>
+          <p>Dairee is still in development. We haven't validated the formulation or how well it works yet, and we'll measure before we make claims.</p>
+        </div>
+        <p class="honest-tag">In development. Not yet for sale.</p>
+      </div>
+    </section>
+
+    <!-- ========== 04 TEAM ========== -->
+    <section class="section team" id="team">
+      <div class="container">
+        <div class="team-head reveal">
+          <p class="eyebrow eyebrow-light"><span class="dot"></span>04 / The founding team</p>
+          <span class="team-year">Dairee / 2026</span>
+        </div>
+        <div class="team-grid">
+          <figure class="team-photo reveal">
+            <img src="assets/team.jpg" width="1176" height="1180" loading="lazy" alt="The three Dairee co-founders standing together in matching brown Dairee t-shirts at a Saint Mary's University event." />
+          </figure>
+          <div class="team-copy reveal">
+            <h2>The people behind <em>the Dairee idea.</em></h2>
+            <p>We're students at Saint Mary's University in Halifax. Between us we bring business, science and a lot of curiosity, plus a shared dislike of good things going to waste.</p>
+            <!-- TODO: add a .people list with each founder's name and role once confirmed -->
+            <a href="#join" class="btn btn-light">Talk to the team <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 05 JOIN / CUSTOMER DISCOVERY ========== -->
+    <section class="section join" id="join">
+      <div class="container two-col">
+        <div class="reveal">
+          <p class="eyebrow"><span class="dot"></span>05 / Help shape Dairee</p>
+          <h2>Grow plants? <em>We'd love your input.</em></h2>
+          <p class="body-lg">We're talking to gardeners and plant owners before we build anything. It takes about a minute, and you can join the list for early prototype testing in Nova Scotia.</p>
+          <ul class="checks">
+            <li>No spam. We'll only send occasional progress updates.</li>
+            <li>Leave your email out if you'd rather just answer.</li>
           </ul>
-          <div class="colour-row" aria-label="Core shades">
-            <span style="--c:#f3ead8" title="Cream"></span>
-            <span style="--c:#d9b98a" title="Butter"></span>
-            <span style="--c:#b07a4a" title="Caramel"></span>
-            <span style="--c:#7a4b2a" title="Toffee"></span>
-            <span style="--c:#3e2a1e" title="Espresso"></span>
-            <span style="--c:#243b2f" title="Pasture"></span>
-            <span style="--c:#1d1d1b" title="Ink"></span>
-          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ========== APPLICATIONS ========== -->
-    <section class="section applications" id="applications">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Applications</p>
-          <h2>Made for things you keep.</h2>
-        </div>
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card-art art-fashion"></div>
-            <h3>Fashion &amp; Accessories</h3>
-            <p>Bags, wallets, belts and small leather goods with a soft, refined hand.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-art art-footwear"></div>
-            <h3>Footwear</h3>
-            <p>Uppers and linings that breathe, flex and hold their shape step after step.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-art art-interiors"></div>
-            <h3>Interiors</h3>
-            <p>Upholstery, wall panels and soft furnishings for hospitality and home.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-art art-auto"></div>
-            <h3>Automotive</h3>
-            <p>Seating and trim in development with mobility partners, tested to industry standards.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+        <form class="survey reveal" id="survey" novalidate>
+          <fieldset>
+            <legend>What do you grow?</legend>
+            <div class="chips">
+              <label><input type="checkbox" name="grow" value="Houseplants" /><span>Houseplants</span></label>
+              <label><input type="checkbox" name="grow" value="Vegetables / herbs" /><span>Veg &amp; herbs</span></label>
+              <label><input type="checkbox" name="grow" value="Flowers / garden" /><span>Flowers &amp; garden</span></label>
+              <label><input type="checkbox" name="grow" value="Succulents" /><span>Succulents</span></label>
+            </div>
+          </fieldset>
 
-    <!-- ========== IMPACT ========== -->
-    <section class="section impact" id="impact">
-      <div class="container two-col">
-        <div class="reveal">
-          <p class="eyebrow">Impact</p>
-          <h2>Good for the farm. Good for the planet.</h2>
-          <p>Every roll of Dairee keeps milk out of waterways and gives dairy farmers a new source of income. Here is how we measure it.</p>
-        </div>
-        <div class="impact-list">
-          <div class="impact-item reveal">
-            <h3>Less waste</h3>
-            <p>Surplus milk that would have been dumped becomes raw material, and the rest of it is sent to useful outlets.</p>
-          </div>
-          <div class="impact-item reveal">
-            <h3>Cleaner water</h3>
-            <p>Milk is a powerful water pollutant. Recovering it protects rivers from oxygen-starving runoff.</p>
-          </div>
-          <div class="impact-item reveal">
-            <h3>Fairer farms</h3>
-            <p>We pay farmers and processors for milk that used to cost them money to throw away.</p>
-          </div>
-          <div class="impact-item reveal">
-            <h3>No plastic</h3>
-            <p>Our core material is free of PU and PVC, so it doesn't shed microplastics while in use.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+          <fieldset>
+            <legend>Do you use plant food or fertiliser today?</legend>
+            <div class="chips">
+              <label><input type="radio" name="feed" value="Regularly" /><span>Regularly</span></label>
+              <label><input type="radio" name="feed" value="Sometimes" /><span>Sometimes</span></label>
+              <label><input type="radio" name="feed" value="Never" /><span>Never</span></label>
+            </div>
+          </fieldset>
 
-    <!-- ========== QUOTE ========== -->
-    <section class="quote-band">
-      <div class="container reveal">
-        <blockquote>
-          “We grew up on dairy farms and watched good milk go down the drain. Dairee began with a simple question: what if that milk could become something that lasts for decades?”
-        </blockquote>
-        <p class="quote-by">— The Dairee founding team</p>
-      </div>
-    </section>
+          <fieldset>
+            <legend>Would you try a plant-care product made with repurposed milk?</legend>
+            <div class="chips">
+              <label><input type="radio" name="try" value="Yes" /><span>Yes</span></label>
+              <label><input type="radio" name="try" value="Maybe" /><span>Maybe</span></label>
+              <label><input type="radio" name="try" value="No" /><span>No</span></label>
+            </div>
+          </fieldset>
 
-    <!-- ========== PARTNERS ========== -->
-    <section class="section partners">
-      <div class="container">
-        <p class="eyebrow center reveal">Working with</p>
-        <div class="partner-row reveal">
-          <span>Dairy co-ops</span><span>Fashion houses</span><span>Footwear studios</span><span>Furniture makers</span><span>Research labs</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CONTACT ========== -->
-    <section class="section contact" id="contact">
-      <div class="container two-col">
-        <div class="reveal">
-          <p class="eyebrow">Get in touch</p>
-          <h2>Let's make something that lasts.</h2>
-          <p>Are you a brand looking for samples, a dairy with surplus milk, or an investor who shares our vision? We'd love to hear from you.</p>
-          <p class="contact-mail"><a href="mailto:hello@dairee.com">hello@dairee.com</a></p>
-        </div>
-        <form class="contact-form reveal" id="contactForm" novalidate>
-          <label>Name<input type="text" name="name" required autocomplete="name" /></label>
-          <label>Email<input type="email" name="email" required autocomplete="email" /></label>
-          <label>I am a…
-            <select name="type">
-              <option>Brand / designer</option>
-              <option>Dairy / supplier</option>
-              <option>Investor</option>
-              <option>Press</option>
-              <option>Other</option>
-            </select>
+          <label class="field">What would make you hesitate? <span class="opt">(optional)</span>
+            <textarea name="concern" rows="3" placeholder="e.g. smell, price, whether it's safe for my plants"></textarea>
           </label>
-          <label>Message<textarea name="message" rows="4" required></textarea></label>
-          <button type="submit" class="btn">Send message</button>
-          <p class="form-status" id="formStatus" role="status"></p>
+
+          <label class="field">Email for updates and prototype testing <span class="opt">(optional)</span>
+            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
+          </label>
+
+          <button type="submit" class="btn">Send my answers</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
+      </div>
+    </section>
+
+    <!-- ========== 06 FAQ ========== -->
+    <section class="section faq" id="faq">
+      <div class="container faq-grid">
+        <div class="reveal">
+          <p class="eyebrow"><span class="dot"></span>06 / Questions</p>
+          <h2>Fair <em>questions.</em></h2>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Can I buy Dairee?</summary>
+            <p>Not yet. Dairee is a concept in development. Join the list above and we'll let you know if and when there's a prototype to try.</p>
+          </details>
+          <details>
+            <summary>Is it safe for my plants?</summary>
+            <p>We don't know yet, and that's exactly what our evaluation stage is for. We won't make any claims until we've tested how plants respond.</p>
+          </details>
+          <details>
+            <summary>Won't milk smell?</summary>
+            <p>It's a fair worry, and one of the first things we're testing alongside shelf life and stability. If we can't solve it, we won't ship it.</p>
+          </details>
+          <details>
+            <summary>Where would the milk come from?</summary>
+            <p>We're exploring sources of milk that would otherwise go unused, such as surplus or unsold product. We're learning what reliable collection and storage would require.</p>
+          </details>
+          <details>
+            <summary>I work at a dairy, retailer or lab. Can we talk?</summary>
+            <p>Yes, please. We'd love to hear from people who know milk, plants or product testing. <a href="mailto:hello@dairee.com">Email us</a>.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
@@ -263,36 +354,29 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a href="#top" class="logo logo-light">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4C22 18 12 30 12 42a20 20 0 0 0 40 0C52 30 42 18 32 4Z"/></svg>
+        <a href="#top" class="logo logo-light" aria-label="Dairee — back to top">
+          <svg aria-hidden="true" style="--mark-cut:#16291f"><use href="#mark"/></svg>
           <span>dairee</span>
         </a>
-        <p class="footer-tag">Material from milk that never made it.</p>
+        <p class="footer-tag">Good things deserve to grow again.</p>
       </div>
       <div>
         <h4>Explore</h4>
-        <a href="#about">About</a>
+        <a href="#idea">The idea</a>
         <a href="#process">Process</a>
-        <a href="#material">Material</a>
-        <a href="#impact">Impact</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
       </div>
       <div>
-        <h4>Connect</h4>
+        <h4>Say hello</h4>
+        <!-- TODO: confirm the real address and social links -->
         <a href="mailto:hello@dairee.com">hello@dairee.com</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-      </div>
-      <div>
-        <h4>Newsletter</h4>
-        <form class="newsletter" onsubmit="event.preventDefault(); this.innerHTML='<p>Thanks — you’re on the list.</p>';">
-          <input type="email" placeholder="your@email.com" aria-label="Email address" required />
-          <button type="submit" aria-label="Subscribe">→</button>
-        </form>
+        <span>Halifax, Nova Scotia</span>
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© <span id="year"></span> Dairee. All rights reserved.</span>
-      <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+      <span>© <span id="year">2026</span> Dairee. A student venture from Saint Mary's University.</span>
+      <span>Dairee is in development. No product is currently for sale, and no performance claims are made.</span>
     </div>
   </footer>
 
