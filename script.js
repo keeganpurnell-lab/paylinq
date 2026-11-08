@@ -201,4 +201,12 @@ document.querySelectorAll('.copy-btn').forEach((btn) => {
   });
 });
 
+// Hero: tap the sprout to replay the drop
+const heroArt = document.getElementById('heroArt');
+heroArt.addEventListener('click', () => {
+  heroArt.classList.remove('play');
+  void heroArt.offsetWidth;
+  heroArt.classList.add('play');
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();

@@ -2,15 +2,23 @@
 
 Static site for **Dairee**, a student-led startup from Saint Mary's University in Halifax, Nova Scotia. Dairee is exploring how milk that would otherwise go unused could become a liquid fertilizer for houseplants and home gardens. It is in development and not for sale, and the site makes no performance claims.
 
-- `index.html` — page: hero, the idea, development path, product concept, "honest from the start", team, customer-discovery survey, FAQ, footer
-- `styles.css` — design tokens (forest / sage / paper), layout, responsive and reduced-motion rules
-- `script.js` — header state, mobile menu, scroll reveals, survey handling
-- `assets/` — team photo plus soil and cactus photos cropped from the first draft (replace with full-resolution originals when available)
+Founding team: Poojan Pitolwala (Founder & CEO), Sophie Wells (COO), Keegan Purnell (CMO).
 
-Open `index.html` in a browser, or deploy the folder to any static host (GitHub Pages, Netlify, Vercel).
+## Files
+- `index.html` — the page: hero (milk-drop-to-sprout animation), the idea, why milk, process, product idea, progress log (hidden until there are results), team, survey, suppliers, FAQ
+- `styles.css` — design tokens, layout, motion (all motion is switched off for visitors who prefer reduced motion)
+- `script.js` — header, menu, scroll effects, process stepper, survey, copy-email button
+- `404.html` — "page not found" for GitHub Pages
+- `assets/` — photos (JPG + WebP), share card `og.jpg`, home-screen icon
 
-## Before launch
-1. **Survey:** set `FORM_ENDPOINT` in `script.js` (for example a Formspree form URL). Until then, answers open as a pre-filled email to `CONTACT_EMAIL`.
-2. **Contact:** confirm the email address and add social links (footer and FAQ).
-3. **Team:** add founder names and roles (see the TODO in the team section).
-4. **Photos:** swap the illustrated bottle and pot for real prototype photos when you have them.
+## Go live (GitHub Pages)
+Settings → Pages → Source: *Deploy from a branch* → choose this branch and `/ (root)` → Save.
+The site appears at https://keeganpurnell-lab.github.io/paylinq/
+
+If the repo is renamed or a custom domain is added, update the full URLs in `index.html` (`og:url`, `og:image`, JSON-LD) and the link in `404.html`.
+
+## Still to do
+1. **Survey:** set `FORM_ENDPOINT` in `script.js` (e.g. a Formspree URL). Until then answers open as a pre-filled email.
+2. **Contact:** confirm the email address (`hello@dairee.com` is a placeholder) and add Instagram/LinkedIn.
+3. **Progress log:** remove `hidden` from `<section id="learned">` and fill in real results.
+4. **Photos:** replace the soil and cactus photos (cropped from the first draft) with originals or your own prototype photos.

@@ -467,3 +467,73 @@ summary:hover { color: var(--sage-ink); }
 .js .people li:nth-child(3) { transition-delay: .24s; }
 .js .in .people li { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .js .people li { opacity: 1; transform: none; } }
+
+/* =====================================================================
+   Signature hero moment: a milk drop falls into soil and a sprout grows
+   ===================================================================== */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 2rem; align-items: center; }
+.hero-copy { min-width: 0; }
+.hero-art { all: unset; display: block; position: relative; width: 100%; max-width: 420px; justify-self: end; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.hero-art svg { width: 100%; height: auto; overflow: visible; }
+.hero-art:focus-visible { outline: 3px solid var(--sage); outline-offset: 6px; border-radius: 24px; }
+.art-hint { position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%); font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(251,250,244,.5); opacity: 0; transition: opacity .3s; white-space: nowrap; }
+.hero-art:hover .art-hint, .hero-art:focus-visible .art-hint { opacity: 1; }
+.art-orbit { transform-box: view-box; transform-origin: 180px 250px; animation: spin 80s linear infinite; }
+
+/* Resting state (no JS / reduced motion): the grown sprout */
+.milk-drop, .ripple, .spark { opacity: 0; }
+.stem { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.leaf { transform-box: view-box; }
+.leaf-a { transform-origin: 180px 236px; }
+.leaf-b { transform-origin: 181px 210px; }
+.leaf-c { transform-origin: 181px 198px; }
+
+/* The sequence (class "play" restarts it) */
+.hero-art.play .milk-drop { animation: fall .85s cubic-bezier(.55,0,1,.45) .7s both, vanish .12s linear 1.55s forwards; }
+.hero-art.play .ripple { transform-box: fill-box; transform-origin: center; animation: ripple 1s var(--ease-out) 1.55s both; }
+.hero-art.play .r2 { animation-delay: 1.75s; }
+.hero-art.play .spark { animation: spark .8s var(--ease-out) 1.55s both; }
+.hero-art.play .s1 { --sx: -34px; --sy: -36px; }
+.hero-art.play .s2 { --sx: 30px; --sy: -44px; }
+.hero-art.play .s3 { --sx: 8px; --sy: -58px; }
+.hero-art.play .stem { animation: grow 1.1s var(--ease-out) 1.85s both; }
+.hero-art.play .leaf-a { animation: unfurl .9s var(--spring) 2.5s both, leafSway 5s ease-in-out 3.6s infinite; }
+.hero-art.play .leaf-b { animation: unfurl .9s var(--spring) 2.75s both, leafSway 5.6s ease-in-out 3.9s infinite reverse; }
+.hero-art.play .leaf-c { animation: unfurl .8s var(--spring) 3s both, leafSway 4.4s ease-in-out 4.1s infinite; }
+
+@keyframes fall { 0% { transform: translateY(-140px); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(268px) scaleY(1.08); opacity: 1; } }
+@keyframes vanish { to { opacity: 0; } }
+@keyframes ripple { 0% { transform: scale(.4); opacity: 0; } 15% { opacity: .9; } 100% { transform: scale(4.2, 2.2); opacity: 0; } }
+@keyframes spark { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--sx), var(--sy)); opacity: 0; } }
+@keyframes grow { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes unfurl { from { transform: scale(0) rotate(-25deg); } to { transform: none; } }
+@keyframes leafSway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-5deg); } }
+
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-art { order: -1; max-width: 210px; justify-self: start; margin: -1.2rem 0 .4rem -14px; }
+  .art-hint { display: none; }
+}
+@media (max-width: 600px) {
+  .hero-art { max-width: 150px; margin: -.8rem 0 0 -10px; }
+}
+
+/* Typography finish */
+h1, h2, h3, .footer-big { text-wrap: balance; }
+p, li, summary { text-wrap: pretty; }
+
+/* Faster hero image where WebP is supported */
+.hero-bg {
+  background:
+    linear-gradient(180deg, rgba(14,28,20,.82) 0%, rgba(14,28,20,.72) 45%, rgba(14,28,20,.9) 100%),
+    url("assets/soil.jpg") center / cover no-repeat;
+  background:
+    linear-gradient(180deg, rgba(14,28,20,.82) 0%, rgba(14,28,20,.72) 45%, rgba(14,28,20,.9) 100%),
+    image-set(url("assets/soil.webp") type("image/webp"), url("assets/soil.jpg") type("image/jpeg")) center / cover no-repeat;
+}
+picture { display: contents; }
+
+/* Back to top */
+.to-top { display: inline-flex; align-items: center; gap: .5rem; margin-top: 2.6rem; font-weight: 700; font-size: .95rem; color: var(--sage-pale); text-decoration: none; }
+.to-top span { transition: transform .25s var(--ease-out); }
+.to-top:hover span { transform: translateY(-3px); }

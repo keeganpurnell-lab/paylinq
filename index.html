@@ -10,8 +10,31 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Dairee — A second life for milk" />
   <meta property="og:description" content="A student-led idea from Nova Scotia: repurposing unused milk into a liquid plant fertilizer. Help shape it." />
-  <meta property="og:image" content="assets/team.jpg" />
+  <!-- Share previews need a full URL: update if the site moves to a custom domain -->
+  <meta property="og:url" content="https://keeganpurnell-lab.github.io/paylinq/" />
+  <meta property="og:image" content="https://keeganpurnell-lab.github.io/paylinq/assets/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Dairee: A second life for milk. A new idea for plant care." />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preload" as="image" href="assets/soil.webp" type="image/webp" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Dairee",
+    "description": "A student-led startup from Halifax, Nova Scotia, exploring a liquid fertilizer made with repurposed milk.",
+    "url": "https://keeganpurnell-lab.github.io/paylinq/",
+    "logo": "https://keeganpurnell-lab.github.io/paylinq/assets/apple-touch-icon.png",
+    "foundingLocation": { "@type": "Place", "name": "Halifax, Nova Scotia, Canada" },
+    "founders": [
+      { "@type": "Person", "name": "Poojan Pitolwala", "jobTitle": "Founder & CEO" },
+      { "@type": "Person", "name": "Sophie Wells", "jobTitle": "Chief Operating Officer" },
+      { "@type": "Person", "name": "Keegan Purnell", "jobTitle": "Chief Marketing Officer" }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,6 +88,8 @@
         <span style="--x:78%;--s:7px;--t:21s;--dl:-4s"></span><span style="--x:91%;--s:9px;--t:18s;--dl:-9s"></span>
       </div>
       <div class="container hero-inner">
+        <div class="hero-grid">
+        <div class="hero-copy">
         <p class="eyebrow eyebrow-light intro" style="--i:0"><span class="dot"></span>A student-led idea from Nova Scotia</p>
         <h1><span class="line"><span class="intro-line" style="--i:1">A second life for milk.</span></span><span class="line"><em class="intro-line" style="--i:2">A new idea for plant care.</em></span></h1>
         <p class="lead intro" style="--i:4">We're exploring how repurposed milk could become a gentle liquid fertilizer for houseplants and home gardens.</p>
@@ -79,6 +104,40 @@
             <span class="mouse" aria-hidden="true"><span></span></span>
             Follow our progress
           </a>
+        </div>
+        </div>
+        <button type="button" class="hero-art play" id="heroArt" aria-label="Replay the milk-to-sprout animation">
+          <svg viewBox="0 0 360 440" aria-hidden="true">
+            <defs>
+              <radialGradient id="glowG" cx="50%" cy="55%" r="50%">
+                <stop offset="0" stop-color="#a8c094" stop-opacity=".35"/>
+                <stop offset="1" stop-color="#a8c094" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="180" cy="250" r="170" fill="url(#glowG)"/>
+            <circle class="art-orbit" cx="180" cy="250" r="158" fill="none" stroke="#d4e0bf" stroke-opacity=".28" stroke-dasharray="2 10"/>
+            <!-- stem + leaves -->
+            <path class="stem" pathLength="1" d="M180 318C180 276 175 244 181 196" fill="none" stroke="#a8c094" stroke-width="6" stroke-linecap="round"/>
+            <path class="leaf leaf-a" d="M180 236c-40 4-70-18-76-56 40-2 70 18 76 56Z" fill="#7f9a6c"/>
+            <path class="leaf leaf-b" d="M181 210c8-38 40-60 80-58-6 38-38 60-80 58Z" fill="#a8c094"/>
+            <path class="leaf leaf-c" d="M181 198c-10-14-8-30 4-42 10 14 8 30-4 42Z" fill="#d4e0bf"/>
+            <!-- pot -->
+            <path d="M100 332h160l-17 96a8 8 0 0 1-8 6H125a8 8 0 0 1-8-6Z" fill="#c9784a"/>
+            <path d="M118 360h124" stroke="#b5673c" stroke-width="3" opacity=".5"/>
+            <rect x="88" y="312" width="184" height="26" rx="9" fill="#b5673c"/>
+            <ellipse cx="180" cy="316" rx="84" ry="10" fill="#2b1f15"/>
+            <circle cx="150" cy="315" r="2" fill="#4a3826"/><circle cx="206" cy="317" r="2.4" fill="#4a3826"/><circle cx="226" cy="314" r="1.6" fill="#4a3826"/>
+            <!-- splash -->
+            <ellipse class="ripple r1" cx="180" cy="316" rx="16" ry="4" fill="none" stroke="#f3ecd9" stroke-width="2"/>
+            <ellipse class="ripple r2" cx="180" cy="316" rx="16" ry="4" fill="none" stroke="#f3ecd9" stroke-width="1.5"/>
+            <circle class="spark s1" cx="180" cy="312" r="3" fill="#f3ecd9"/>
+            <circle class="spark s2" cx="180" cy="312" r="2.4" fill="#f3ecd9"/>
+            <circle class="spark s3" cx="180" cy="312" r="2" fill="#f3ecd9"/>
+            <!-- milk drop -->
+            <path class="milk-drop" d="M180 0c-10 14-18 24-18 34a18 18 0 0 0 36 0c0-10-8-20-18-34Z" fill="#f3ecd9"/>
+          </svg>
+          <span class="art-hint" aria-hidden="true">Tap to replay</span>
+        </button>
         </div>
         <div class="hero-foot intro" style="--i:7">
           <span>Halifax, Nova Scotia</span>
@@ -114,7 +173,7 @@
         </div>
 
         <figure class="photo-card soil reveal zoom parallax">
-          <img src="assets/soil.jpg" width="1180" height="470" loading="lazy" alt="A green garden trowel full of dark potting soil, with moss on a pale work surface." />
+          <picture><source srcset="assets/soil.webp" type="image/webp" /><img src="assets/soil.jpg" width="1180" height="470" loading="lazy" alt="A green garden trowel full of dark potting soil, with moss on a pale work surface." /></picture>
           <figcaption class="overlay-card">
             <p class="eyebrow"><span class="ring"></span>Made for growers</p>
             <h3>For the little things you love to grow</h3>
@@ -260,7 +319,7 @@
       <div class="container">
         <article class="product-card reveal">
           <figure class="product-photo zoom">
-            <img src="assets/cactus.jpg" width="1178" height="1080" loading="lazy" alt="A small cactus in a terracotta pot against a soft pink wall." />
+            <picture><source srcset="assets/cactus.webp" type="image/webp" /><img src="assets/cactus.jpg" width="1178" height="1080" loading="lazy" alt="A small cactus in a terracotta pot against a soft pink wall." /></picture>
             <span class="photo-pill">For the little things you love to grow</span>
           </figure>
           <div class="product-body">
@@ -336,7 +395,7 @@
         </div>
         <div class="team-grid">
           <figure class="team-photo reveal zoom">
-            <img src="assets/team.jpg" width="1176" height="1180" loading="lazy" alt="The three Dairee co-founders standing together in matching brown Dairee t-shirts at a Saint Mary's University event." />
+            <picture><source srcset="assets/team.webp" type="image/webp" /><img src="assets/team.jpg" width="1176" height="1180" loading="lazy" alt="The three Dairee co-founders standing together in matching brown Dairee t-shirts at a Saint Mary's University event." /></picture>
             <figcaption class="photo-pill">The people behind the Dairee idea</figcaption>
           </figure>
           <div class="team-copy reveal">
@@ -485,6 +544,7 @@
           <p>Halifax, Nova Scotia</p>
         </div>
       </div>
+      <a href="#top" class="to-top">Back to top <span aria-hidden="true">↑</span></a>
       <div class="footer-bottom">
         <span>© <span id="year">2026</span> Dairee. A student venture from Saint Mary's University.</span>
         <span>In development. No product is currently for sale, and no performance claims are made.</span>
