@@ -408,3 +408,6 @@ summary:hover { color: var(--sage-ink); }
   .hero-bg, .parallax img { translate: none !important; }
 }
 .js .reveal.zoom { transition: opacity .8s ease, transform .8s var(--ease-out), clip-path 1.3s var(--ease-out) .1s; }
+/* Keep the floating header clear of phone notches / status bars */
+.site-header { padding-top: calc(14px + env(safe-area-inset-top, 0px)); }
+@media (max-width: 600px) { .site-header { padding-top: calc(10px + env(safe-area-inset-top, 0px)); } }
