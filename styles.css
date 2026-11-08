@@ -454,3 +454,16 @@ summary:hover { color: var(--sage-ink); }
 .supplier-label { font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-pale); }
 .supplier-email { font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; color: var(--cream); user-select: all; word-break: break-all; }
 @media (max-width: 760px) { .supplier-card { grid-template-columns: 1fr; } }
+
+/* Founders list */
+.people { list-style: none; display: grid; gap: .2rem; margin: -.6rem 0 2rem; border-top: 1px solid rgba(251,250,244,.14); }
+.people li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center; padding: .95rem 0; border-bottom: 1px solid rgba(251,250,244,.14); }
+.people div { display: grid; }
+.people strong { color: var(--cream); font-size: 1.15rem; letter-spacing: -.02em; }
+.people div span { color: var(--sage-pale); font-size: .82rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.initials { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: rgba(212,224,191,.12); border: 1.5px solid rgba(212,224,191,.35); color: var(--sage-pale); font-family: var(--serif); font-style: italic; font-size: 1.15rem; }
+.js .people li { opacity: 0; transform: translateX(-16px); transition: opacity .6s ease, transform .7s var(--ease-out); }
+.js .people li:nth-child(2) { transition-delay: .12s; }
+.js .people li:nth-child(3) { transition-delay: .24s; }
+.js .in .people li { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js .people li { opacity: 1; transform: none; } }
