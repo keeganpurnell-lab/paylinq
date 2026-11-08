@@ -140,8 +140,11 @@ form.addEventListener('submit', async (e) => {
   const answered = ['grow', 'feed', 'try'].some((k) => data.getAll(k).length) || data.get('concern').trim();
   const email = data.get('email').trim();
 
+  const consent = data.get('consent') === 'yes';
+  if (consent && !email) return say('Add your email so we can send you updates.', true);
   if (!answered && !email) return say('Pick at least one answer, or leave your email.', true);
   if (email && !form.email.checkValidity()) return say('That email doesn’t look quite right.', true);
+  if (email && !consent) return say('To get updates, tick the box below your email. Or clear the email to just send your answers.', true);
 
   const summary = {
     grows: data.getAll('grow').join(', ') || '—',
@@ -149,6 +152,7 @@ form.addEventListener('submit', async (e) => {
     would_try: data.get('try') || '—',
     hesitation: data.get('concern').trim() || '—',
     email: email || '—',
+    email_updates_consent: consent ? 'yes' : 'no',
   };
 
   if (FORM_ENDPOINT) {
@@ -177,6 +181,24 @@ form.addEventListener('submit', async (e) => {
   const body = Object.entries(summary).map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`).join('\n');
   window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Dairee survey answers')}&body=${encodeURIComponent(body)}`;
   say('Your email app should open with your answers. Just hit send. Thank you!');
+});
+
+// Copy-email buttons
+document.querySelectorAll('.copy-btn').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    const text = btn.dataset.copy;
+    try {
+      await navigator.clipboard.writeText(text);
+      btn.textContent = 'Copied';
+    } catch {
+      const sel = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(btn.parentElement.querySelector('.supplier-email'));
+      sel.removeAllRanges(); sel.addRange(range);
+      btn.textContent = 'Selected, press copy';
+    }
+    setTimeout(() => { btn.textContent = 'Copy email'; }, 2200);
+  });
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
