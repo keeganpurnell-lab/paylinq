@@ -209,4 +209,72 @@ heroArt.addEventListener('click', () => {
   heroArt.classList.add('play');
 });
 
+// Manifesto: light up words as the paragraph scrolls past
+const manifesto = document.querySelector('.manifesto-text');
+if (manifesto) {
+  const words = [];
+  const walk = (node) => {
+    [...node.childNodes].forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.append(part); return; }
+          const w = document.createElement('span');
+          w.className = 'mw';
+          w.textContent = part;
+          words.push(w);
+          frag.append(w);
+        });
+        child.replaceWith(frag);
+      } else if (child.nodeType === Node.ELEMENT_NODE) walk(child);
+    });
+  };
+  walk(manifesto);
+  const light = () => {
+    const r = manifesto.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const start = vh * 0.85, end = vh * 0.35;
+    const t = Math.min(1, Math.max(0, (start - r.top) / (start - end + r.height * 0.6)));
+    const n = reduceMotion ? words.length : Math.round(t * words.length);
+    words.forEach((w, i) => w.classList.toggle('lit', i < n));
+  };
+  window.addEventListener('scroll', () => requestAnimationFrame(light), { passive: true });
+  window.addEventListener('resize', light);
+  light();
+}
+
+// Menu: highlight the section on screen
+const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
+if ('IntersectionObserver' in window) {
+  const byId = new Map(navLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach((a) => a.classList.remove('active'));
+      byId.get(e.target.id)?.classList.add('active');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  byId.forEach((_, id) => { const el = document.getElementById(id); if (el) spy.observe(el); });
+}
+
+// Footer wordmark rises into place
+const wordmark = document.querySelector('.wordmark');
+if (wordmark && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { wordmark.classList.add('in'); o.disconnect(); } }, { threshold: 0.2 }).observe(wordmark);
+} else if (wordmark) wordmark.classList.add('in');
+
+// Magnetic buttons (mouse only)
+if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.magnetic').forEach((btn) => {
+    btn.addEventListener('pointermove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) * 0.18;
+      const y = (e.clientY - r.top - r.height / 2) * 0.3;
+      btn.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+    });
+    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+  });
+}
+
 document.getElementById('year').textContent = new Date().getFullYear();
