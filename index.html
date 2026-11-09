@@ -1,16 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Dairee — A second life for milk</title>
-  <meta name="description" content="Dairee is a student-led startup from Halifax, Nova Scotia, exploring how milk that would otherwise go unused could become a liquid fertilizer for houseplants and home gardens. In development, not yet for sale." />
+  <title>Dairee | Milk-based liquid fertilizer · Halifax, NS</title>
+  <meta name="description" content="Dairee is a student-led startup from Halifax, Nova Scotia, developing a liquid plant fertilizer made from milk that would otherwise be wasted." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="author" content="Dairee" />
+  <meta name="geo.region" content="CA-NS" />
+  <meta name="geo.placename" content="Halifax, Nova Scotia" />
   <meta name="theme-color" content="#16291f" />
   <link rel="canonical" href="https://dairee.ca/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Dairee — A second life for milk" />
-  <meta property="og:description" content="A student-led idea from Nova Scotia: repurposing unused milk into a liquid plant fertilizer. Help shape it." />
+  <meta property="og:site_name" content="Dairee" />
+  <meta property="og:locale" content="en_CA" />
+  <meta property="og:title" content="Dairee: A second life for milk" />
+  <meta property="og:description" content="A student-led startup from Halifax, Nova Scotia, turning milk that would be wasted into a liquid plant fertilizer. Help shape it." />
   <!-- Share previews need the full site address -->
   <meta property="og:url" content="https://dairee.ca/" />
   <meta property="og:image" content="https://dairee.ca/assets/og.jpg" />
@@ -18,25 +24,167 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Dairee: A second life for milk. A new idea for plant care." />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dairee: A second life for milk" />
+  <meta name="twitter:description" content="A student-led startup from Halifax, Nova Scotia, turning milk that would be wasted into a liquid plant fertilizer." />
+  <link rel="alternate" type="text/plain" href="https://dairee.ca/llms.txt" title="Dairee summary for AI assistants" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preload" as="image" href="assets/soil.webp" type="image/webp" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Dairee",
-    "description": "A student-led startup from Halifax, Nova Scotia, exploring a liquid fertilizer made with repurposed milk.",
-    "url": "https://dairee.ca/",
-    "email": "getdairee@gmail.com",
-    "sameAs": ["https://www.instagram.com/getdairee/"],
-    "logo": "https://dairee.ca/assets/apple-touch-icon.png",
-    "foundingLocation": { "@type": "Place", "name": "Halifax, Nova Scotia, Canada" },
-    "founders": [
-      { "@type": "Person", "name": "Poojan Pitolwala", "jobTitle": "Founder & CEO" },
-      { "@type": "Person", "name": "Sophie Wells", "jobTitle": "Chief Operating Officer" },
-      { "@type": "Person", "name": "Keegan Purnell", "jobTitle": "Chief Marketing Officer" }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://dairee.ca/#org",
+      "name": "Dairee",
+      "url": "https://dairee.ca/",
+      "logo": "https://dairee.ca/assets/apple-touch-icon.png",
+      "image": "https://dairee.ca/assets/og.jpg",
+      "description": "Dairee is a student-led startup from Halifax, Nova Scotia, developing a liquid plant fertilizer made from milk that would otherwise be wasted.",
+      "slogan": "Good things deserve to grow again.",
+      "email": "getdairee@gmail.com",
+      "sameAs": [
+        "https://www.instagram.com/getdairee/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Halifax",
+        "addressRegion": "NS",
+        "addressCountry": "CA"
+      },
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Halifax, Nova Scotia, Canada"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Nova Scotia, Canada"
+      },
+      "knowsAbout": [
+        "liquid fertilizer",
+        "plant care",
+        "houseplants",
+        "home gardening",
+        "milk waste",
+        "food waste reduction",
+        "upcycling dairy"
+      ],
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Saint Mary's University",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Halifax",
+          "addressRegion": "NS",
+          "addressCountry": "CA"
+        }
+      },
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Poojan Pitolwala",
+          "jobTitle": "Founder & CEO"
+        },
+        {
+          "@type": "Person",
+          "name": "Sophie Wells",
+          "jobTitle": "Chief Operating Officer"
+        },
+        {
+          "@type": "Person",
+          "name": "Keegan Purnell",
+          "jobTitle": "Chief Marketing Officer"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://dairee.ca/#website",
+      "url": "https://dairee.ca/",
+      "name": "Dairee",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://dairee.ca/#org"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dairee.ca/#webpage",
+      "url": "https://dairee.ca/",
+      "name": "Dairee | Milk-based liquid fertilizer · Halifax, NS",
+      "isPartOf": {
+        "@id": "https://dairee.ca/#website"
+      },
+      "about": {
+        "@id": "https://dairee.ca/#org"
+      },
+      "inLanguage": "en-CA",
+      "primaryImageOfPage": "https://dairee.ca/assets/og.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dairee.ca/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Dairee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dairee is a student-led startup from Halifax, Nova Scotia, developing a liquid plant fertilizer made from milk that would otherwise be wasted. It is designed for houseplants and home gardens and is currently in development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who started Dairee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dairee was founded at Saint Mary's University in Halifax by Poojan Pitolwala (Founder & CEO), Sophie Wells (Chief Operating Officer) and Keegan Purnell (Chief Marketing Officer)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I buy Dairee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not yet. Dairee is a concept in development. Join the list above and we'll let you know if and when there's a prototype to try."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe for my plants?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We don't know yet, and that's exactly what our evaluation stage is for. We won't make any claims until we've tested how plants respond."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Won't milk smell?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's a fair worry, and one of the first things we're testing alongside shelf life and stability. If we can't solve it, we won't ship it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where would the milk come from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We're exploring sources of milk that would otherwise go unused, such as surplus or unsold product, and learning what reliable collection and storage would require."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I work at a dairy, retailer or lab. Can we talk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, please. We'd love to hear from people who know milk, plants or product testing. Email getdairee@gmail.com."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -103,7 +251,7 @@
 
         <div class="hero-ctas intro" style="--i:6">
           <a href="#idea" class="btn btn-cream magnetic">Discover Dairee <span aria-hidden="true">↗</span></a>
-          <a href="https://www.instagram.com/getdairee/" class="follow" target="_blank" rel="noopener" aria-label="Follow our progress on Instagram (opens in a new tab)">
+          <a href="https://www.instagram.com/getdairee/" class="follow" rel="me" aria-label="Follow our progress on Instagram, @getdairee">
             <span class="mouse" aria-hidden="true"><span></span></span>
             Follow our progress
           </a>
@@ -449,7 +597,7 @@
             <li>No spam. We'll only send occasional progress updates.</li>
             <li>Leave your email out if you'd rather just answer.</li>
           </ul>
-          <a class="ig-link" href="https://www.instagram.com/getdairee/" target="_blank" rel="noopener">
+          <a class="ig-link" href="https://www.instagram.com/getdairee/" rel="me">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
             <span>Follow along on Instagram <strong>@getdairee</strong></span>
           </a>
@@ -522,8 +670,24 @@
         <div class="reveal">
           <p class="eyebrow"><span class="dot"></span>07 / Questions</p>
           <h2>Fair <em>questions.</em></h2>
+          <dl class="facts">
+            <div><dt>What</dt><dd>Liquid plant fertilizer made from repurposed milk</dd></div>
+            <div><dt>For</dt><dd>Houseplants and home gardens</dd></div>
+            <div><dt>Where</dt><dd>Halifax, Nova Scotia, Canada</dd></div>
+            <div><dt>Started at</dt><dd>Saint Mary's University</dd></div>
+            <div><dt>Stage</dt><dd>In development, not yet for sale</dd></div>
+            <div><dt>Contact</dt><dd>getdairee@gmail.com · <a href="https://www.instagram.com/getdairee/" rel="me">@getdairee</a></dd></div>
+          </dl>
         </div>
         <div class="faq-list reveal">
+          <details open>
+            <summary>What is Dairee?</summary>
+            <p>Dairee is a student-led startup from Halifax, Nova Scotia, developing a liquid plant fertilizer made from milk that would otherwise be wasted. It is designed for houseplants and home gardens and is currently in development.</p>
+          </details>
+          <details>
+            <summary>Who started Dairee?</summary>
+            <p>Dairee was founded at Saint Mary's University in Halifax by Poojan Pitolwala (Founder &amp; CEO), Sophie Wells (Chief Operating Officer) and Keegan Purnell (Chief Marketing Officer).</p>
+          </details>
           <details>
             <summary>Can I buy Dairee?</summary>
             <p>Not yet. Dairee is a concept in development. Join the list above and we'll let you know if and when there's a prototype to try.</p>
@@ -570,7 +734,7 @@
         <div>
           <h4>Say hello</h4>
           <a href="mailto:getdairee@gmail.com">getdairee@gmail.com</a>
-          <a href="https://www.instagram.com/getdairee/" target="_blank" rel="noopener">Instagram @getdairee&nbsp;<span aria-hidden="true">↗</span></a>
+          <a href="https://www.instagram.com/getdairee/" rel="me">Instagram @getdairee&nbsp;<span aria-hidden="true">↗</span></a>
           <p>Halifax, Nova Scotia</p>
         </div>
       </div>

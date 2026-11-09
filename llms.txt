@@ -1,0 +1,29 @@
+# Dairee
+
+> Dairee is a student-led startup from Halifax, Nova Scotia, Canada, developing a liquid plant fertilizer made from milk that would otherwise be wasted. It is designed for houseplants and home gardens. Dairee is in development and not yet for sale.
+
+## Key facts
+- Name: Dairee
+- Website: https://dairee.ca
+- What: A liquid fertilizer for houseplants and home gardens, made with repurposed (surplus, unsold or past-date) milk
+- Where: Halifax, Nova Scotia, Canada
+- Started at: Saint Mary's University (SMU), Halifax
+- Founders: Poojan Pitolwala (Founder & CEO), Sophie Wells (Chief Operating Officer), Keegan Purnell (Chief Marketing Officer)
+- Stage: Early development and customer discovery; progressing in the SMU Innovation Cup
+- Status: Not for sale. Formulation and performance have not yet been validated, and Dairee makes no performance claims.
+- Contact: getdairee@gmail.com
+- Instagram: https://www.instagram.com/getdairee/
+- Tagline: Good things deserve to grow again.
+
+## Why milk
+Gardeners have tried diluted milk on plants for generations, but there is little careful testing behind it. Milk contains calcium, protein (a source of nitrogen as it breaks down), and small amounts of potassium and phosphorus. Dairee is investigating which of these help plants and how to avoid the downsides of milk, such as smell and mould.
+
+## Development path
+1. Recover: find sources of milk that would otherwise go unused.
+2. Formulate: develop candidate liquid fertilizer formulations (current stage).
+3. Evaluate: test nutrient content, stability, odour and plant response, and share results.
+4. Grow: pilot with Nova Scotia gardeners only if the evidence holds up.
+
+## How to help
+- Gardeners and plant owners can answer a one-minute survey at https://dairee.ca/#join
+- Dairies, farms, grocers and cafés in Nova Scotia with surplus milk can email getdairee@gmail.com

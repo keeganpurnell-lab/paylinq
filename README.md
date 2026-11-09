@@ -8,7 +8,10 @@ Founding team: Poojan Pitolwala (Founder & CEO), Sophie Wells (COO), Keegan Purn
 - `index.html` — the page: hero (milk-drop-to-sprout animation), the idea, why milk, process, product idea, progress log (hidden until there are results), team, survey, suppliers, FAQ
 - `styles.css` — design tokens, layout, motion (all motion is switched off for visitors who prefer reduced motion)
 - `script.js` — header, menu, scroll effects, process stepper, survey, copy-email button
-- `404.html` — "page not found" for GitHub Pages
+- `404.html` — "page not found" page
+- `llms.txt` — plain-language summary of Dairee for AI assistants (ChatGPT, Claude, Perplexity)
+- `robots.txt`, `sitemap.xml` — tell search engines and AI crawlers what to read
+- `vercel.json` — caching and security headers on Vercel
 - `assets/` — photos (JPG + WebP), share card `og.jpg`, home-screen icon
 
 ## Live site

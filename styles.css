@@ -646,3 +646,10 @@ body::after {
 
 @media (max-width: 960px) { .art-count { font-size: .62rem; padding: .35rem .7rem; bottom: -10px; left: 0; transform: none; } }
 @media (max-width: 600px) { .hero-art { margin-bottom: .9rem; } }
+
+/* Quick facts (FAQ column) */
+.facts { display: grid; margin-top: 2rem; border-top: 1px solid var(--line); }
+.facts > div { display: grid; grid-template-columns: minmax(0, 6.5rem) minmax(0, 1fr); gap: 1rem; padding: .75rem 0; border-bottom: 1px solid var(--line); }
+.facts dt { font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--sage-ink); padding-top: .2rem; }
+.facts dd { margin: 0; color: var(--ink); font-size: .98rem; line-height: 1.45; overflow-wrap: anywhere; }
+.facts a { color: var(--sage-ink); font-weight: 600; }
