@@ -134,6 +134,59 @@ const form = document.getElementById('survey');
 const status = document.getElementById('formStatus');
 const say = (msg, err = false) => { status.textContent = msg; status.classList.toggle('error', err); };
 
+// Step-by-step survey: one question at a time with a progress bar
+const panes = [...form.querySelectorAll('.step-pane')];
+const stepLabel = document.getElementById('stepLabel');
+const stepBar = document.getElementById('stepBar');
+const backBtn = document.getElementById('stepBack');
+const nextBtn = document.getElementById('stepNext');
+const submitBtn = document.getElementById('stepSubmit');
+let current = 0;
+const showStep = (i, focus = false) => {
+  current = Math.max(0, Math.min(panes.length - 1, i));
+  panes.forEach((p, j) => p.classList.toggle('active', j === current));
+  stepLabel.textContent = current === panes.length - 1 ? 'Last step' : `Question ${current + 1} of ${panes.length}`;
+  stepBar.style.width = `${((current + 1) / panes.length) * 100}%`;
+  backBtn.hidden = current === 0;
+  nextBtn.hidden = current === panes.length - 1;
+  submitBtn.hidden = current !== panes.length - 1;
+  say('');
+  if (focus) panes[current].querySelector('input, textarea')?.focus({ preventScroll: true });
+};
+form.classList.add('stepper');
+showStep(0);
+nextBtn.addEventListener('click', () => showStep(current + 1, true));
+backBtn.addEventListener('click', () => showStep(current - 1, true));
+// Single-choice questions move on by themselves
+form.querySelectorAll('input[type="radio"]').forEach((r) => r.addEventListener('change', () => {
+  const at = current;
+  setTimeout(() => { if (current === at) showStep(at + 1, true); }, reduceMotion ? 0 : 320);
+}));
+
+// Thank-you screen with a share ask
+const thanks = document.getElementById('surveyThanks');
+const showThanks = (viaEmail) => {
+  form.classList.add('done');
+  thanks.hidden = false;
+  document.getElementById('thanksText').textContent = viaEmail
+    ? 'Your email app should have opened with your answers filled in. Just press send and they come straight to the founding team.'
+    : 'Your answers go straight to the founding team and shape what we test first.';
+  document.getElementById('thanksTitle').focus({ preventScroll: true });
+  thanks.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+  window.va?.('event', { name: 'survey_submitted' });
+};
+document.getElementById('shareSite').addEventListener('click', async (e) => {
+  const btn = e.currentTarget;
+  const shareData = { title: 'Dairee', text: 'Help shape Dairee, a new fertilizer made from milk that would be wasted. 1-minute survey:', url: 'https://dairee.ca/#join' };
+  try {
+    if (navigator.share) { await navigator.share(shareData); return; }
+    await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+    btn.firstChild.textContent = 'Link copied ';
+  } catch {
+    btn.firstChild.textContent = 'dairee.ca/#join ';
+  }
+});
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
@@ -156,7 +209,7 @@ form.addEventListener('submit', async (e) => {
   };
 
   if (FORM_ENDPOINT) {
-    const btn = form.querySelector('button');
+    const btn = submitBtn;
     btn.disabled = true;
     say('Sending…');
     try {
@@ -167,8 +220,8 @@ form.addEventListener('submit', async (e) => {
       });
       if (!res.ok) throw new Error(res.status);
       form.reset();
-      form.classList.remove('sent'); void form.offsetWidth; form.classList.add('sent');
-      say('Thank you! Your answers really help us decide what to build.');
+      say('');
+      showThanks(false);
     } catch {
       say('Something went wrong. Please try again, or email us.', true);
     } finally {
@@ -180,7 +233,7 @@ form.addEventListener('submit', async (e) => {
   // No endpoint yet: open a pre-filled email so no answers are lost
   const body = Object.entries(summary).map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`).join('\n');
   window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Dairee survey answers')}&body=${encodeURIComponent(body)}`;
-  say('Your email app should open with your answers. Just hit send. Thank you!');
+  showThanks(true);
 });
 
 // Copy-email buttons
@@ -305,6 +358,26 @@ if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').mat
       btn.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
     });
     btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+  });
+}
+
+// Sticky survey button (phones): shows after the hero, hides at the survey and footer
+const sticky = document.getElementById('stickyCta');
+if (sticky && 'IntersectionObserver' in window) {
+  const watched = new Map();
+  const update = () => {
+    const show = !watched.get('hero') && !watched.get('join') && !watched.get('footer') && !form.classList.contains('done');
+    sticky.classList.toggle('show', show);
+    sticky.setAttribute('aria-hidden', String(!show));
+    sticky.tabIndex = show ? 0 : -1;
+  };
+  const io2 = new IntersectionObserver((entries) => {
+    entries.forEach((e) => watched.set(e.target.dataset.watch, e.isIntersecting));
+    update();
+  });
+  [['hero', '.hero'], ['join', '#join'], ['footer', '.site-footer']].forEach(([k, sel]) => {
+    const el = document.querySelector(sel);
+    if (el) { el.dataset.watch = k; watched.set(k, k === 'hero'); io2.observe(el); }
   });
 }
 

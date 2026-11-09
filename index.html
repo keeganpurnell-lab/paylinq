@@ -250,12 +250,13 @@
         </div>
 
         <div class="hero-ctas intro" style="--i:6">
-          <a href="#idea" class="btn btn-cream magnetic">Discover Dairee <span aria-hidden="true">↗</span></a>
+          <a href="#join" class="btn btn-cream magnetic" data-cta="hero-survey">Take the 1-minute survey <span aria-hidden="true">↗</span></a>
           <a href="https://www.instagram.com/getdairee/" class="follow" rel="me" aria-label="Follow our progress on Instagram, @getdairee">
             <span class="mouse" aria-hidden="true"><span></span></span>
-            Follow our progress
+            Follow @getdairee
           </a>
         </div>
+        <p class="hero-micro intro" style="--i:7">Help shape a new fertilizer from Nova Scotia. Answer 4 quick questions and get first dibs on testing the prototype.</p>
         </div>
         <button type="button" class="hero-art play" id="heroArt" aria-label="Pour another drop of milk and watch the plant grow">
           <svg viewBox="0 0 360 440" aria-hidden="true">
@@ -594,6 +595,8 @@
           <h2>Grow plants? <em>We'd love your input.</em></h2>
           <p class="body-lg">We're talking to gardeners and plant owners before we build anything. It takes about a minute, and you can join the list for early prototype testing in Nova Scotia.</p>
           <ul class="checks">
+            <li>4 quick questions, about 1 minute.</li>
+            <li>People who leave an email get first dibs on testing the prototype.</li>
             <li>No spam. We'll only send occasional progress updates.</li>
             <li>Leave your email out if you'd rather just answer.</li>
           </ul>
@@ -604,6 +607,12 @@
         </div>
 
         <form class="survey reveal" id="survey" novalidate>
+          <div class="survey-top" aria-hidden="true">
+            <span class="survey-step-label" id="stepLabel">Question 1 of 4</span>
+            <span class="survey-time">About 1 minute</span>
+            <span class="survey-bar"><span id="stepBar"></span></span>
+          </div>
+          <div class="step-pane" data-step="1">
           <fieldset>
             <legend>What do you grow?</legend>
             <div class="chips">
@@ -611,8 +620,11 @@
               <label><input type="checkbox" name="grow" value="Vegetables / herbs" /><span>Veg &amp; herbs</span></label>
               <label><input type="checkbox" name="grow" value="Flowers / garden" /><span>Flowers &amp; garden</span></label>
               <label><input type="checkbox" name="grow" value="Succulents" /><span>Succulents</span></label>
+              <label><input type="checkbox" name="grow" value="Nothing yet" /><span>Nothing yet</span></label>
             </div>
           </fieldset>
+          </div>
+          <div class="step-pane" data-step="2">
           <fieldset>
             <legend>Do you use plant food or fertilizer today?</legend>
             <div class="chips">
@@ -621,6 +633,8 @@
               <label><input type="radio" name="feed" value="Never" /><span>Never</span></label>
             </div>
           </fieldset>
+          </div>
+          <div class="step-pane" data-step="3">
           <fieldset>
             <legend>Would you try a fertilizer made with repurposed milk?</legend>
             <div class="chips">
@@ -629,18 +643,35 @@
               <label><input type="radio" name="try" value="No" /><span>No</span></label>
             </div>
           </fieldset>
+          </div>
+          <div class="step-pane" data-step="4">
           <label class="field">What would make you hesitate? <span class="opt">(optional)</span>
             <textarea name="concern" rows="3" placeholder="e.g. smell, price, whether it's safe for my plants"></textarea>
           </label>
-          <label class="field">Email for updates and prototype testing <span class="opt">(optional)</span>
+          <label class="field">Want to test the prototype? Leave your email <span class="opt">(optional)</span>
             <input type="email" id="survey-email" name="email" autocomplete="email" placeholder="you@example.com" />
           </label>
           <label class="consent">
             <input type="checkbox" id="survey-consent" name="consent" value="yes" />
             <span>Yes, email me Dairee updates and invitations to test prototypes. I can unsubscribe at any time.</span>
           </label>
-          <button type="submit" class="btn btn-dark magnetic">Send my answers <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="survey-nav">
+            <button type="button" class="survey-back" id="stepBack">← Back</button>
+            <button type="button" class="btn btn-dark" id="stepNext">Next <span aria-hidden="true">→</span></button>
+            <button type="submit" class="btn btn-dark magnetic" id="stepSubmit">Send my answers <span aria-hidden="true">↗</span></button>
+          </div>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <div class="thanks" id="surveyThanks" hidden>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 3C22 17 11 29 11 42a21 21 0 0 0 42 0C53 29 42 17 32 3Z" fill="#16291f"/><path d="M22 41l7 7 14-15" fill="none" stroke="#d4e0bf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 id="thanksTitle" tabindex="-1">Thank you. That really helps.</h3>
+            <p id="thanksText">Your answers go straight to the founding team and shape what we test first.</p>
+            <p class="thanks-ask">Know someone who grows plants? Their answers help just as much.</p>
+            <div class="thanks-actions">
+              <button type="button" class="btn btn-dark" id="shareSite" data-cta="share">Share the survey <span aria-hidden="true">↗</span></button>
+              <a class="btn btn-light-outline" href="https://www.instagram.com/getdairee/" rel="me" data-cta="thanks-instagram">Follow @getdairee</a>
+            </div>
+          </div>
           <p class="privacy">Privacy: we use your answers only to shape Dairee. If you share your email, we use it only for the updates you agreed to. We never sell or share it, and we'll delete it whenever you ask at getdairee@gmail.com.</p>
         </form>
       </div>
@@ -747,6 +778,12 @@
     </div>
   </footer>
 
+  <a href="#join" class="sticky-cta" id="stickyCta" data-cta="sticky-survey" aria-hidden="true" tabindex="-1">
+    <span>Help shape Dairee</span><strong>1-min survey →</strong>
+  </a>
+
   <script src="script.js"></script>
+  <!-- Vercel Web Analytics (turn on in Vercel: Project → Analytics → Enable) -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

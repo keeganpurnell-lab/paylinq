@@ -653,3 +653,56 @@ body::after {
 .facts dt { font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--sage-ink); padding-top: .2rem; }
 .facts dd { margin: 0; color: var(--ink); font-size: .98rem; line-height: 1.45; overflow-wrap: anywhere; }
 .facts a { color: var(--sage-ink); font-weight: 600; }
+
+/* =====================================================================
+   Conversion layer
+   ===================================================================== */
+.hero-micro { margin-top: 1.1rem; max-width: 32rem; font-size: .95rem; color: rgba(251,250,244,.7); }
+
+/* Survey steps */
+.survey-top { display: grid; grid-template-columns: 1fr auto; gap: .6rem 1rem; align-items: center; }
+.survey-step-label { font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--sage-ink); }
+.survey-time { font-size: .82rem; color: var(--muted); }
+.survey-bar { grid-column: 1 / -1; height: 6px; border-radius: 6px; background: var(--mist); overflow: hidden; }
+.survey-bar span { display: block; height: 100%; width: 25%; border-radius: 6px; background: var(--forest); transition: width .5s var(--ease-out); }
+.step-pane { display: grid; gap: 1.5rem; }
+.survey.stepper .step-pane:not(.active) { display: none; }
+.survey.stepper .step-pane.active { animation: paneIn .45s var(--ease-out); }
+@keyframes paneIn { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
+.survey legend { font-size: 1.25rem; letter-spacing: -.02em; margin-bottom: 1rem; }
+.survey-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.survey-nav .btn { margin-left: auto; }
+.survey-back { background: none; border: 0; padding: .6rem 0; font-weight: 700; color: var(--muted); cursor: pointer; min-height: 44px; }
+.survey-back:hover { color: var(--ink); }
+.survey:not(.stepper) .survey-top, .survey:not(.stepper) #stepNext, .survey:not(.stepper) #stepBack { display: none; }
+.survey .btn[hidden], .survey-back[hidden] { display: none; }
+
+/* Thank-you state */
+.survey.done > :not(.thanks):not(.privacy) { display: none !important; }
+.thanks { display: grid; gap: .8rem; justify-items: start; animation: paneIn .5s var(--ease-out); }
+.thanks svg { width: 54px; height: 54px; }
+.thanks h3 { font-size: 1.7rem; outline: none; }
+.thanks p { color: var(--muted); }
+.thanks-ask { color: var(--ink) !important; font-weight: 600; }
+.thanks-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: .4rem; }
+.btn-light-outline { background: transparent; color: var(--forest); border: 1.5px solid var(--line); }
+.btn-light-outline:hover { border-color: var(--forest); }
+
+/* Sticky survey button (phones only) */
+.sticky-cta { display: none; }
+@media (max-width: 760px) {
+  .sticky-cta {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    position: fixed; z-index: 60; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    padding: .85rem 1.1rem; border-radius: 16px; background: var(--forest); color: var(--cream); text-decoration: none;
+    box-shadow: 0 18px 40px -16px rgba(0,0,0,.55); font-size: .95rem;
+    transform: translateY(160%); transition: transform .45s var(--ease-out);
+  }
+  .sticky-cta span { color: rgba(251,250,244,.75); }
+  .sticky-cta strong { color: #e2b46b; white-space: nowrap; }
+  .sticky-cta.show { transform: none; }
+  .site-footer { padding-bottom: 6rem; }
+}
+
+.thanks[hidden] { display: none; }
