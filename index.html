@@ -189,7 +189,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
   <link rel="stylesheet" href="styles.css" />
   <script>document.documentElement.classList.add("js")</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 3C22 17 11 29 11 42a21 21 0 0 0 42 0C53 29 42 17 32 3Z' fill='%2316291f'/%3E%3Cpath d='M32 52V36M32 40c-6 0-10-4-10-10 6 0 10 4 10 10Zm0-2c0-6 4-10 10-10 0 6-4 10-10 10Z' fill='%23eef0e4' stroke='%23eef0e4' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E" />
@@ -223,7 +225,7 @@
       </nav>
       <a href="#join" class="btn btn-dark btn-small header-cta">Help shape Dairee <span aria-hidden="true">↗</span></a>
       <span class="progress" aria-hidden="true"></span>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span>
       </button>
     </div>
@@ -251,14 +253,14 @@
 
         <div class="hero-ctas intro" style="--i:6">
           <a href="#join" class="btn btn-cream magnetic" data-cta="hero-survey">Take the 1-minute survey <span aria-hidden="true">↗</span></a>
-          <a href="https://www.instagram.com/getdairee/" class="follow" rel="me" aria-label="Follow our progress on Instagram, @getdairee">
+          <a href="https://www.instagram.com/getdairee/" class="follow" rel="me">
             <span class="mouse" aria-hidden="true"><span></span></span>
             Follow @getdairee
           </a>
         </div>
         <p class="hero-micro intro" style="--i:7">Help shape a new fertilizer from Nova Scotia. Answer 4 quick questions and get first dibs on testing the prototype.</p>
         </div>
-        <button type="button" class="hero-art play" id="heroArt" aria-label="Pour another drop of milk and watch the plant grow">
+        <button type="button" class="hero-art play" id="heroArt">
           <svg viewBox="0 0 360 440" aria-hidden="true">
             <defs>
               <radialGradient id="glowG" cx="50%" cy="55%" r="50%">
@@ -756,14 +758,14 @@
           </a>
         </div>
         <div>
-          <h4>Explore</h4>
+          <h3 class="foot-h">Explore</h3>
           <a href="#idea">The idea</a>
           <a href="#process">Process</a>
           <a href="#team">Team</a>
           <a href="#faq">FAQ</a>
         </div>
         <div>
-          <h4>Say hello</h4>
+          <h3 class="foot-h">Say hello</h3>
           <a href="mailto:getdairee@gmail.com">getdairee@gmail.com</a>
           <a href="https://www.instagram.com/getdairee/" rel="me">Instagram @getdairee&nbsp;<span aria-hidden="true">↗</span></a>
           <p>Halifax, Nova Scotia</p>
@@ -782,8 +784,13 @@
     <span>Help shape Dairee</span><strong>1-min survey →</strong>
   </a>
 
-  <script src="script.js"></script>
-  <!-- Vercel Web Analytics (turn on in Vercel: Project → Analytics → Enable) -->
-  <script defer src="/_vercel/insights/script.js"></script>
+  <script src="script.js" defer></script>
+  <!-- Vercel Web Analytics: turn on in Vercel (Project → Analytics → Enable) -->
+  <script>
+    if (/(^|\.)dairee\.ca$|\.vercel\.app$/.test(location.hostname)) {
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      var va = document.createElement('script'); va.defer = true; va.src = '/_vercel/insights/script.js'; document.head.appendChild(va);
+    }
+  </script>
 </body>
 </html>

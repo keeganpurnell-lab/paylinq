@@ -241,7 +241,7 @@ details a { color: var(--sage-ink); font-weight: 700; }
 .footer-big { font-size: clamp(2.4rem, 6vw, 4.6rem); font-weight: 700; letter-spacing: -.05em; line-height: 1; color: var(--cream); max-width: 14ch; margin-bottom: 3.5rem; }
 .footer-big em { color: var(--sage-pale); }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
-.footer-grid h4 { color: var(--cream); font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1rem; }
+.footer-grid h4, .footer-grid .foot-h { color: var(--cream); font-family: var(--sans); font-weight: 700; font-size: .78rem; line-height: 1.4; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1rem; }
 .footer-grid a:not(.logo-badge), .footer-grid p { display: block; text-decoration: none; margin: 0 0 .55rem; }
 .footer-grid a:not(.logo-badge):hover { color: var(--sage-pale); }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .8rem 2rem; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(251,250,244,.12); font-size: .85rem; color: rgba(251,250,244,.6); }
@@ -560,8 +560,10 @@ body::after {
 .manifesto { background: var(--paper); padding: clamp(4.5rem, 12vw, 9rem) 0 clamp(2rem, 6vw, 4rem); }
 .manifesto-text { font-size: clamp(1.9rem, 4.6vw, 3.6rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.12; max-width: 22ch; color: var(--forest); text-wrap: pretty; }
 .manifesto-text em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; color: var(--sage-ink); }
-.js .manifesto-text .mw { opacity: .16; transition: opacity .35s ease; }
-.js .manifesto-text .mw.lit { opacity: 1; }
+.js .manifesto-text .mw { color: #7f897f; transition: color .35s ease; }
+.js .manifesto-text em.mw, .js .manifesto-text em .mw { color: #7f897f; }
+.js .manifesto-text .mw.lit { color: var(--forest); }
+.js .manifesto-text em .mw.lit { color: var(--sage-ink); }
 .manifesto-sign { display: flex; align-items: center; gap: .6rem; margin-top: 2.2rem; font-size: .8rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--sage-ink); }
 .manifesto-sign svg { width: 20px; height: 20px; color: var(--sage-ink); --mark-cut: var(--paper); }
 .idea { padding-top: clamp(3rem, 7vw, 5rem); }
