@@ -270,8 +270,8 @@ const setStage = (n) => {
   heroArt.classList.toggle('s3', n >= 3);
 };
 const label = () => {
-  if (stage >= 3) return `${drops} drops saved. Good things grow again.`;
-  return `${drops} drop${drops === 1 ? '' : 's'} saved · tap to pour`;
+  if (stage >= 3) return `${drops} scoops added. Good things grow again.`;
+  return `${drops} scoop${drops === 1 ? '' : 's'} added · tap for more`;
 };
 settle();
 heroArt.addEventListener('click', () => {
@@ -282,7 +282,7 @@ heroArt.addEventListener('click', () => {
     heroArt.classList.remove('grown', 'pour', 'play');
     void heroArt.offsetWidth;
     heroArt.classList.add('play');
-    artCount.textContent = 'Tap the pot to pour';
+    artCount.textContent = 'Tap the pot to add a scoop';
     settle();
     return;
   }

@@ -308,15 +308,31 @@
             <ellipse cx="180" cy="316" rx="84" ry="10" fill="#2b1f15"/>
             <circle cx="150" cy="315" r="2" fill="#4a3826"/><circle cx="206" cy="317" r="2.4" fill="#4a3826"/><circle cx="226" cy="314" r="1.6" fill="#4a3826"/>
             <!-- splash -->
-            <ellipse class="ripple r1" cx="180" cy="316" rx="16" ry="4" fill="none" stroke="#f3ecd9" stroke-width="2"/>
-            <ellipse class="ripple r2" cx="180" cy="316" rx="16" ry="4" fill="none" stroke="#f3ecd9" stroke-width="1.5"/>
-            <circle class="spark s1" cx="180" cy="312" r="3" fill="#f3ecd9"/>
-            <circle class="spark s2" cx="180" cy="312" r="2.4" fill="#f3ecd9"/>
-            <circle class="spark s3" cx="180" cy="312" r="2" fill="#f3ecd9"/>
+            <ellipse class="ripple r1" cx="219" cy="315" rx="14" ry="4" fill="#e6d7b5" opacity=".7"/>
+            <ellipse class="ripple r2" cx="219" cy="315" rx="14" ry="4" fill="none" stroke="#e6d7b5" stroke-width="1.5"/>
+            <circle class="spark s1" cx="219" cy="311" r="2.6" fill="#e6d7b5"/>
+            <circle class="spark s2" cx="219" cy="311" r="2.2" fill="#d4c095"/>
+            <circle class="spark s3" cx="219" cy="311" r="1.8" fill="#e6d7b5"/>
             <!-- milk drop -->
-            <path class="milk-drop" d="M180 0c-10 14-18 24-18 34a18 18 0 0 0 36 0c0-10-8-20-18-34Z" fill="#f3ecd9"/>
+            <g class="scoop">
+              <rect x="242" y="52" width="60" height="10" rx="5" fill="#b5673c"/>
+              <path d="M190 46h54v8a27 27 0 0 1-27 27 27 27 0 0 1-27-27Z" fill="#efe4c8"/>
+              <path d="M190 46h54v8a27 27 0 0 1-27 27 27 27 0 0 1-27-27Z" fill="none" stroke="#d4c095" stroke-width="2"/>
+              <ellipse cx="217" cy="46" rx="27" ry="6.5" fill="#f7f1e2"/>
+            </g>
+            <g class="grains">
+              <circle class="grain" style="--gx:-7px;--d:0s" cx="213" cy="124" r="3.2"/>
+              <circle class="grain alt" style="--gx:4px;--d:.05s" cx="219" cy="122" r="2.6"/>
+              <circle class="grain" style="--gx:-2px;--d:.11s" cx="224" cy="125" r="2.2"/>
+              <circle class="grain alt" style="--gx:6px;--d:.16s" cx="216" cy="126" r="3"/>
+              <circle class="grain" style="--gx:-5px;--d:.22s" cx="221" cy="121" r="2.4"/>
+              <circle class="grain" style="--gx:3px;--d:.27s" cx="211" cy="123" r="2"/>
+              <circle class="grain alt" style="--gx:-3px;--d:.33s" cx="226" cy="124" r="2.8"/>
+              <circle class="grain" style="--gx:5px;--d:.38s" cx="218" cy="127" r="2.3"/>
+              <circle class="grain" style="--gx:-6px;--d:.44s" cx="222" cy="123" r="2.6"/>
+            </g>
           </svg>
-          <span class="art-count" id="artCount" aria-live="polite">Tap the pot to pour</span>
+          <span class="art-count" id="artCount" aria-live="polite">Tap the pot to add a scoop</span>
         </button>
         </div>
         <div class="hero-foot intro" style="--i:7">
@@ -447,9 +463,11 @@
               </svg>
               <!-- 02 flask -->
               <svg class="icon icon-1" viewBox="0 0 120 140">
-                <path d="M48 18h24M52 18v36L28 110a10 10 0 0 0 9 14h46a10 10 0 0 0 9-14L68 54V18" fill="#fff" stroke="#16291f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
-                <path d="M38 96h44l8 16a6 6 0 0 1-5 8H35a6 6 0 0 1-5-8Z" fill="#f3ecd9"/>
-                <circle class="bubble" style="--b:0s" cx="54" cy="104" r="4" fill="#7f9a6c"/><circle class="bubble" style="--b:.7s" cx="66" cy="106" r="3" fill="#7f9a6c"/><circle class="bubble" style="--b:1.4s" cx="60" cy="108" r="2.5" fill="#7f9a6c"/>
+                <path class="pestle" d="M86 22L60 74" stroke="#16291f" stroke-width="10" stroke-linecap="round"/>
+                <path d="M18 72h84a4 4 0 0 1 4 4c0 24-20 42-46 42S14 100 14 76a4 4 0 0 1 4-4Z" fill="#fff" stroke="#16291f" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M24 76h72c-3 7-17 12-36 12s-33-5-36-12Z" fill="#efe4c8"/>
+                <rect x="42" y="116" width="36" height="9" rx="4.5" fill="#16291f"/>
+                <circle class="puff" style="--b:0s" cx="48" cy="72" r="3" fill="#d4c095"/><circle class="puff" style="--b:.6s" cx="70" cy="70" r="2.4" fill="#d4c095"/><circle class="puff" style="--b:1.2s" cx="58" cy="68" r="2" fill="#e6d7b5"/>
               </svg>
               <!-- 03 magnifier -->
               <svg class="icon icon-2" viewBox="0 0 120 140">

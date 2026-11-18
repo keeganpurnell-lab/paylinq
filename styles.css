@@ -708,3 +708,43 @@ body::after {
 }
 
 .thanks[hidden] { display: none; }
+
+/* =====================================================================
+   Powder visuals (replacing the old liquid drop)
+   ===================================================================== */
+/* Floating background specks: round grains, not droplets */
+.drops span { border-radius: 50% !important; height: var(--s) !important; width: calc(var(--s) * .7) !important; aspect-ratio: 1; background: rgba(239,228,200,.22) !important; }
+.art-count::before { width: 7px !important; height: 7px !important; border-radius: 50% !important; background: #efe4c8 !important; box-shadow: 4px -3px 0 -1px #d4c095, -3px -4px 0 -1.5px #efe4c8; }
+
+/* Scoop and grains are hidden at rest */
+.scoop, .grain { opacity: 0; }
+.grain { fill: #efe4c8; }
+.grain.alt { fill: #d4c095; }
+.scoop { transform-box: view-box; transform-origin: 302px 57px; }
+
+/* First visit: scoop tips in, grains fall, dust puffs at ~1.55s, then the sprout grows */
+.hero-art.play .scoop { animation: scoopPour 1.5s var(--ease-out) .3s both; }
+.hero-art.play .grain { animation: grainFall .62s cubic-bezier(.5,0,1,.6) both; animation-delay: calc(.95s + var(--d)); }
+/* Each tap */
+.hero-art.pour .scoop { animation: scoopPour 1.2s var(--ease-out) both; }
+.hero-art.pour .grain { animation: grainFall .55s cubic-bezier(.5,0,1,.6) both; animation-delay: calc(.2s + var(--d)); }
+
+@keyframes scoopPour {
+  0%   { opacity: 0; transform: translate(36px, -14px) rotate(0); }
+  18%  { opacity: 1; transform: translate(0, 0) rotate(0); }
+  42%  { opacity: 1; transform: rotate(-38deg); }
+  78%  { opacity: 1; transform: rotate(-40deg); }
+  100% { opacity: 0; transform: translate(24px, -16px) rotate(-8deg); }
+}
+@keyframes grainFall {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  12%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--gx), 188px); }
+}
+
+/* Mortar and pestle: gentle grinding with a little powder puff */
+.pestle { transform-box: view-box; transform-origin: 62px 74px; animation: grind 1.6s ease-in-out infinite; }
+@keyframes grind { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-14deg); } }
+.puff { animation: puffUp 1.8s ease-out infinite; animation-delay: var(--b); }
+@keyframes puffUp { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .9; } 100% { transform: translateY(-26px); opacity: 0; } }
