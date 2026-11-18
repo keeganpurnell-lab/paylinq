@@ -1,11 +1,11 @@
 # Dairee — website
 
-Static site for **Dairee**, a student-led startup from Saint Mary's University in Halifax, Nova Scotia. Dairee is exploring how milk that would otherwise go unused could become a liquid fertilizer for houseplants and home gardens. It is in development and not for sale, and the site makes no performance claims.
+Static site for **Dairee**, a student-led startup from Saint Mary's University in Halifax, Nova Scotia. Dairee is developing a dry powder fertilizer for houseplants and home gardens, made from milk, eggshells and potato peels that would otherwise be wasted. It is in development and not for sale, and the site makes no performance claims.
 
 Founding team: Poojan Pitolwala (Founder & CEO), Sophie Wells (COO), Keegan Purnell (CMO).
 
 ## Files
-- `index.html` — the page: hero (milk-drop-to-sprout animation), the idea, why milk, process, product idea, progress log (hidden until there are results), team, survey, suppliers, FAQ
+- `index.html` — the page: hero (milk-drop-to-sprout animation), the idea, ingredients, process, product idea, progress log (hidden until there are results), team, survey, suppliers, FAQ
 - `styles.css` — design tokens, layout, motion (all motion is switched off for visitors who prefer reduced motion)
 - `script.js` — header, menu, scroll effects, process stepper, survey, copy-email button
 - `404.html` — "page not found" page

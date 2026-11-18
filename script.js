@@ -177,7 +177,7 @@ const showThanks = (viaEmail) => {
 };
 document.getElementById('shareSite').addEventListener('click', async (e) => {
   const btn = e.currentTarget;
-  const shareData = { title: 'Dairee', text: 'Help shape Dairee, a new fertilizer made from milk that would be wasted. 1-minute survey:', url: 'https://dairee.ca/#join' };
+  const shareData = { title: 'Dairee', text: 'Help shape Dairee, a new powder fertilizer made from wasted milk, eggshells and potato peels. 1-minute survey:', url: 'https://dairee.ca/#join' };
   try {
     if (navigator.share) { await navigator.share(shareData); return; }
     await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);

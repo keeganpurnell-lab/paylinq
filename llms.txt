@@ -1,11 +1,13 @@
 # Dairee
 
-> Dairee is a student-led startup from Halifax, Nova Scotia, Canada, developing a liquid plant fertilizer made from milk that would otherwise be wasted. It is designed for houseplants and home gardens. Dairee is in development and not yet for sale.
+> Dairee is a student-led startup from Halifax, Nova Scotia, Canada, developing a dry powder plant fertilizer made from milk, eggshells and potato peels that would otherwise be wasted. It is designed for houseplants and home gardens. Dairee is in development and not yet for sale.
 
 ## Key facts
 - Name: Dairee
 - Website: https://dairee.ca
-- What: A liquid fertilizer for houseplants and home gardens, made with repurposed (surplus, unsold or past-date) milk
+- What: A dry powder fertilizer for houseplants and home gardens, mixed into soil or sprinkled on top
+- Ingredients: Milk, eggshells and potato peels that would otherwise be thrown away, dried and ground into one powder
+- Format history: Dairee first explored a liquid fertilizer, then moved to a dry powder
 - Where: Halifax, Nova Scotia, Canada
 - Started at: Saint Mary's University (SMU), Halifax
 - Founders: Poojan Pitolwala (Founder & CEO), Sophie Wells (Chief Operating Officer), Keegan Purnell (Chief Marketing Officer)
@@ -15,15 +17,19 @@
 - Instagram: https://www.instagram.com/getdairee/
 - Tagline: Good things deserve to grow again.
 
-## Why milk
-Gardeners have tried diluted milk on plants for generations, but there is little careful testing behind it. Milk contains calcium, protein (a source of nitrogen as it breaks down), and small amounts of potassium and phosphorus. Dairee is investigating which of these help plants and how to avoid the downsides of milk, such as smell and mould.
+## Why these ingredients
+Gardeners have added milk, crushed eggshells and potato peels to soil for generations, but there is little careful testing behind it. Dairee is investigating what each one adds:
+- Milk: calcium, plus protein that releases nitrogen as it breaks down in soil
+- Eggshells: mostly calcium carbonate, a slow-release source of calcium
+- Potato peels: potassium, with small amounts of phosphorus
+Drying the ingredients into a powder may help with smell, mould and shelf life; that is one of the first things Dairee is testing.
 
 ## Development path
-1. Recover: find sources of milk that would otherwise go unused.
-2. Formulate: develop candidate liquid fertilizer formulations (current stage).
-3. Evaluate: test nutrient content, stability, odour and plant response, and share results.
+1. Recover: find sources of milk, eggshells and potato peels that would otherwise be thrown away.
+2. Formulate: dry, grind and blend the three ingredients into a powder (current stage).
+3. Evaluate: test nutrient content, moisture, odour and plant response, and share results.
 4. Grow: pilot with Nova Scotia gardeners only if the evidence holds up.
 
 ## How to help
 - Gardeners and plant owners can answer a one-minute survey at https://dairee.ca/#join
-- Dairies, farms, grocers and cafés in Nova Scotia with surplus milk can email getdairee@gmail.com
+- Dairies, bakeries, restaurants, cafés, farms and grocers in Nova Scotia with surplus milk, eggshells or potato peels can email getdairee@gmail.com
