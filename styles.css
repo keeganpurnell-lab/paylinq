@@ -748,3 +748,32 @@ body::after {
 @keyframes grind { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-14deg); } }
 .puff { animation: puffUp 1.8s ease-out infinite; animation-delay: var(--b); }
 @keyframes puffUp { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .9; } 100% { transform: translateY(-26px); opacity: 0; } }
+
+/* =====================================================================
+   Stay in touch (replaces the survey)
+   ===================================================================== */
+.contact { background: var(--mist); }
+.contact-head { max-width: 42rem; margin-bottom: 2.6rem; }
+.contact-head p:not(.eyebrow) { color: var(--muted); }
+.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+.contact-card {
+  display: grid; align-content: start; gap: .55rem; padding: clamp(1.6rem, 4vw, 2.4rem);
+  border-radius: var(--radius); background: var(--white); color: var(--ink); text-decoration: none;
+  box-shadow: 0 40px 80px -60px rgba(22,41,31,.5); min-width: 0;
+}
+.contact-ig { background: var(--forest); color: var(--cream); transition: transform .3s var(--ease-out); }
+.contact-ig:hover { transform: translateY(-4px); }
+.contact-icon { width: 34px; height: 34px; color: var(--sage-ink); margin-bottom: .8rem; }
+.contact-ig .contact-icon { color: var(--sage-pale); }
+.contact-kicker { font-size: .76rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-ink); }
+.contact-ig .contact-kicker { color: var(--sage-pale); }
+.contact-big { font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.1; overflow-wrap: anywhere; }
+.contact-text { color: var(--muted); max-width: 30rem; }
+.contact-ig .contact-text { color: rgba(251,250,244,.8); }
+.contact-go { margin-top: .8rem; font-weight: 700; color: #e2b46b; }
+.contact-go span { display: inline-block; transition: transform .25s var(--ease-out); }
+.contact-ig:hover .contact-go span { transform: translateX(4px); }
+.contact-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem; }
+@media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-ig .contact-big { color: var(--cream); }
+.contact-mail .contact-big { color: var(--ink); }

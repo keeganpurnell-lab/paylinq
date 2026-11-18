@@ -1,9 +1,3 @@
-// ---- Config -------------------------------------------------------------
-// Paste a form endpoint (e.g. https://formspree.io/f/xxxxxxx) to collect
-// survey answers. While it's empty, answers open as a pre-filled email instead.
-const FORM_ENDPOINT = '';
-const CONTACT_EMAIL = 'getdairee@gmail.com';
-// -------------------------------------------------------------------------
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -129,113 +123,6 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   }, { threshold: 0.4 }).observe(orbit.parentElement);
 }
 
-// Survey
-const form = document.getElementById('survey');
-const status = document.getElementById('formStatus');
-const say = (msg, err = false) => { status.textContent = msg; status.classList.toggle('error', err); };
-
-// Step-by-step survey: one question at a time with a progress bar
-const panes = [...form.querySelectorAll('.step-pane')];
-const stepLabel = document.getElementById('stepLabel');
-const stepBar = document.getElementById('stepBar');
-const backBtn = document.getElementById('stepBack');
-const nextBtn = document.getElementById('stepNext');
-const submitBtn = document.getElementById('stepSubmit');
-let current = 0;
-const showStep = (i, focus = false) => {
-  current = Math.max(0, Math.min(panes.length - 1, i));
-  panes.forEach((p, j) => p.classList.toggle('active', j === current));
-  stepLabel.textContent = current === panes.length - 1 ? 'Last step' : `Question ${current + 1} of ${panes.length}`;
-  stepBar.style.width = `${((current + 1) / panes.length) * 100}%`;
-  backBtn.hidden = current === 0;
-  nextBtn.hidden = current === panes.length - 1;
-  submitBtn.hidden = current !== panes.length - 1;
-  say('');
-  if (focus) panes[current].querySelector('input, textarea')?.focus({ preventScroll: true });
-};
-form.classList.add('stepper');
-showStep(0);
-nextBtn.addEventListener('click', () => showStep(current + 1, true));
-backBtn.addEventListener('click', () => showStep(current - 1, true));
-// Single-choice questions move on by themselves
-form.querySelectorAll('input[type="radio"]').forEach((r) => r.addEventListener('change', () => {
-  const at = current;
-  setTimeout(() => { if (current === at) showStep(at + 1, true); }, reduceMotion ? 0 : 320);
-}));
-
-// Thank-you screen with a share ask
-const thanks = document.getElementById('surveyThanks');
-const showThanks = (viaEmail) => {
-  form.classList.add('done');
-  thanks.hidden = false;
-  document.getElementById('thanksText').textContent = viaEmail
-    ? 'Your email app should have opened with your answers filled in. Just press send and they come straight to the founding team.'
-    : 'Your answers go straight to the founding team and shape what we test first.';
-  document.getElementById('thanksTitle').focus({ preventScroll: true });
-  thanks.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
-  window.va?.('event', { name: 'survey_submitted' });
-};
-document.getElementById('shareSite').addEventListener('click', async (e) => {
-  const btn = e.currentTarget;
-  const shareData = { title: 'Dairee', text: 'Help shape Dairee, a new powder fertilizer made from wasted milk, eggshells and potato peels. 1-minute survey:', url: 'https://dairee.ca/#join' };
-  try {
-    if (navigator.share) { await navigator.share(shareData); return; }
-    await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
-    btn.firstChild.textContent = 'Link copied ';
-  } catch {
-    btn.firstChild.textContent = 'dairee.ca/#join ';
-  }
-});
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const answered = ['grow', 'feed', 'try'].some((k) => data.getAll(k).length) || data.get('concern').trim();
-  const email = data.get('email').trim();
-
-  const consent = data.get('consent') === 'yes';
-  if (consent && !email) return say('Add your email so we can send you updates.', true);
-  if (!answered && !email) return say('Pick at least one answer, or leave your email.', true);
-  if (email && !form.email.checkValidity()) return say('That email doesn’t look quite right.', true);
-  if (email && !consent) return say('To get updates, tick the box below your email. Or clear the email to just send your answers.', true);
-
-  const summary = {
-    grows: data.getAll('grow').join(', ') || '—',
-    uses_plant_food: data.get('feed') || '—',
-    would_try: data.get('try') || '—',
-    hesitation: data.get('concern').trim() || '—',
-    email: email || '—',
-    email_updates_consent: consent ? 'yes' : 'no',
-  };
-
-  if (FORM_ENDPOINT) {
-    const btn = submitBtn;
-    btn.disabled = true;
-    say('Sending…');
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(summary),
-      });
-      if (!res.ok) throw new Error(res.status);
-      form.reset();
-      say('');
-      showThanks(false);
-    } catch {
-      say('Something went wrong. Please try again, or email us.', true);
-    } finally {
-      btn.disabled = false;
-    }
-    return;
-  }
-
-  // No endpoint yet: open a pre-filled email so no answers are lost
-  const body = Object.entries(summary).map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`).join('\n');
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Dairee survey answers')}&body=${encodeURIComponent(body)}`;
-  showThanks(true);
-});
-
 // Copy-email buttons
 document.querySelectorAll('.copy-btn').forEach((btn) => {
   btn.addEventListener('click', async () => {
@@ -246,7 +133,7 @@ document.querySelectorAll('.copy-btn').forEach((btn) => {
     } catch {
       const sel = window.getSelection();
       const range = document.createRange();
-      range.selectNodeContents(btn.parentElement.querySelector('.supplier-email'));
+      range.selectNodeContents(btn.closest('.supplier-contact, .contact-card').querySelector('.supplier-email, .copy-text'));
       sel.removeAllRanges(); sel.addRange(range);
       btn.textContent = 'Selected, press copy';
     }
@@ -254,7 +141,7 @@ document.querySelectorAll('.copy-btn').forEach((btn) => {
   });
 });
 
-// Hero: tap the pot to pour more milk; the plant grows, then blooms
+// Hero: tap the pot to add a scoop; the plant grows, then blooms
 const heroArt = document.getElementById('heroArt');
 const artCount = document.getElementById('artCount');
 let drops = 1;
@@ -361,12 +248,12 @@ if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').mat
   });
 }
 
-// Sticky survey button (phones): shows after the hero, hides at the survey and footer
+// Sticky Instagram button (phones): shows after the hero, hides at the contact section and footer
 const sticky = document.getElementById('stickyCta');
 if (sticky && 'IntersectionObserver' in window) {
   const watched = new Map();
   const update = () => {
-    const show = !watched.get('hero') && !watched.get('join') && !watched.get('footer') && !form.classList.contains('done');
+    const show = !watched.get('hero') && !watched.get('contact') && !watched.get('footer');
     sticky.classList.toggle('show', show);
     sticky.setAttribute('aria-hidden', String(!show));
     sticky.tabIndex = show ? 0 : -1;
@@ -375,7 +262,7 @@ if (sticky && 'IntersectionObserver' in window) {
     entries.forEach((e) => watched.set(e.target.dataset.watch, e.isIntersecting));
     update();
   });
-  [['hero', '.hero'], ['join', '#join'], ['footer', '.site-footer']].forEach(([k, sel]) => {
+  [['hero', '.hero'], ['contact', '#contact'], ['footer', '.site-footer']].forEach(([k, sel]) => {
     const el = document.querySelector(sel);
     if (el) { el.dataset.watch = k; watched.set(k, k === 'hero'); io2.observe(el); }
   });
